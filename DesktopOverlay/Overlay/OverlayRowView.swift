@@ -42,8 +42,8 @@ struct OverlayRowView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .help(MetricFormatter.tooltip(for: id, reading: reading))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(MetricFormatter.accessibilityText(for: id, reading: reading))
+        .accessibilityHint(MetricFormatter.tooltip(for: id, reading: reading))
     }
 }

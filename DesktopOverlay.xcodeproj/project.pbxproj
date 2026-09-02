@@ -22,6 +22,7 @@
 		3B8153BB6BD79B1FCF216D4F /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */; };
 		4C38F923D8B10C5B37817B1B /* FanMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DE6C11E0F1E35367F3855E /* FanMetric.swift */; };
 		4C898161D38DF4700AC03E47 /* MetricValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6DCD376FECECE857142CB /* MetricValue.swift */; };
+		4E000B0F6FC6291C32F9733A /* DraggableHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9625EFAECC35A6466FB44472 /* DraggableHostingView.swift */; };
 		540080A8E1D681B72E34C6B8 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */; };
 		6799962E36DDA889CF74E8C1 /* SystemMetricsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */; };
 		6956CCCD0B96101015AB9F1B /* DecayingMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886AE9A76D0304D3AEB6E20 /* DecayingMax.swift */; };
@@ -84,6 +85,7 @@
 		86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricFormatter.swift; sourceTree = "<group>"; };
 		8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayGeometryTests.swift; sourceTree = "<group>"; };
 		8D95B1CD8311E6DA2313B768 /* DesktopOverlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DesktopOverlay.entitlements; sourceTree = "<group>"; };
+		9625EFAECC35A6466FB44472 /* DraggableHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableHostingView.swift; sourceTree = "<group>"; };
 		A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
 		A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRowView.swift; sourceTree = "<group>"; };
 		ABFE6D944264355AFB4928D7 /* NetworkMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMetric.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		9B501A22F933A701D6992337 /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
+				9625EFAECC35A6466FB44472 /* DraggableHostingView.swift */,
 				F282686340D1ABB1B40EE894 /* OverlayPanel.swift */,
 				A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */,
 				AF96F975DF994624291FAB3B /* OverlayView.swift */,
@@ -344,6 +347,7 @@
 				6956CCCD0B96101015AB9F1B /* DecayingMax.swift in Sources */,
 				845B186F14E4DFBF71A8E71E /* DesktopOverlayApp.swift in Sources */,
 				83417B52ADDA206D6E1F35D6 /* DiskMetric.swift in Sources */,
+				4E000B0F6FC6291C32F9733A /* DraggableHostingView.swift in Sources */,
 				4C38F923D8B10C5B37817B1B /* FanMetric.swift in Sources */,
 				2029C006F053AF54A70D637E /* LaunchAtLoginService.swift in Sources */,
 				E8E762533493A76F19973567 /* MemoryCalculator.swift in Sources */,

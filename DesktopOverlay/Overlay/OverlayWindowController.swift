@@ -25,7 +25,7 @@ final class OverlayWindowController {
         let initialFrame = Self.resolveInitialFrame(settings: settings)
         panel = OverlayPanel(contentRect: initialFrame)
 
-        let hosting = NSHostingView(rootView: OverlayRootView(settings: settings, metrics: metrics))
+        let hosting = DraggableHostingView(rootView: OverlayRootView(settings: settings, metrics: metrics))
         hosting.wantsLayer = true
         // The panel frame is authoritative — the SwiftUI content must fill it,
         // not resize it.
