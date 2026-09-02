@@ -1,11 +1,23 @@
 # Desktop Overlay
 
+![platform: macOS 15+](https://img.shields.io/badge/platform-macOS%2015%2B-blue)
+[![license: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![latest release](https://img.shields.io/github/v/release/alhanashi/Desktop-Overlay?sort=semver)](https://github.com/alhanashi/Desktop-Overlay/releases)
+
 A tiny, native macOS floating panel that shows live system metrics — CPU, memory,
 disk I/O, network throughput, thermal state, and (on Intel Macs) CPU temperature
 and fan speed — always on top of your other windows, so you never need to open
 Activity Monitor.
 
-<!-- Add a screenshot here once you have one: ![Desktop Overlay](docs/screenshot.png) -->
+A lightweight, open-source alternative to iStat Menus / MenuMeters / Stats.
+
+<!-- Screenshots: add docs/screenshot-light.png and docs/screenshot-dark.png, then:
+<p align="center">
+  <img src="docs/screenshot-light.png" width="320" alt="Desktop Overlay, light">
+  <img src="docs/screenshot-dark.png" width="320" alt="Desktop Overlay, dark">
+</p>
+-->
+
 
 - **100% native.** Swift + SwiftUI + AppKit. No Electron, no web view, no
   JavaScript, no Python, no bundled runtime, no third-party dependencies.
@@ -35,7 +47,26 @@ or run.
 
 ## Install
 
-### From Xcode
+### Download the pre-built app
+
+Grab `DesktopOverlay-x.y.zip` from the
+[latest release](https://github.com/alhanashi/Desktop-Overlay/releases), unzip,
+and move **DesktopOverlay.app** to `/Applications`.
+
+The build is ad-hoc signed but **not notarized**, so on first launch macOS will
+refuse to open it normally. Do this **once**:
+
+- **right-click** the app ▸ **Open** ▸ **Open** in the dialog,
+
+or from Terminal:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/DesktopOverlay.app
+```
+
+After that it launches normally every time.
+
+### Build it yourself — from Xcode
 
 ```bash
 open DesktopOverlay.xcodeproj
@@ -43,15 +74,17 @@ open DesktopOverlay.xcodeproj
 
 Select the **DesktopOverlay** scheme and press **⌘R**.
 
-### As a real app (recommended)
+### Build it yourself — install script
 
 ```bash
 ./Scripts/install.sh
 ```
 
-This builds Release, copies the app to `/Applications`, ad-hoc signs it, removes
-the quarantine flag, and launches it. Installing to a stable, signed location is
-what lets **Launch at Login** register correctly.
+Builds Release, copies the app to `/Applications`, ad-hoc signs it, removes the
+quarantine flag, and launches it. Installing to a stable, signed location is what
+lets **Launch at Login** register correctly.
+
+`./Scripts/package.sh` produces `dist/DesktopOverlay-<version>.zip` for a release.
 
 On first launch:
 
