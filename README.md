@@ -2,7 +2,7 @@
 
 ![platform: macOS 15+](https://img.shields.io/badge/platform-macOS%2015%2B-blue)
 [![license: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![latest release](https://img.shields.io/github/v/release/alhanashi/Desktop-Overlay?sort=semver)](https://github.com/alhanashi/Desktop-Overlay/releases)
+[![latest release](https://img.shields.io/github/v/release/alhanashi/Desktop-Overlay?display_name=tag)](https://github.com/alhanashi/Desktop-Overlay/releases/latest)
 
 A tiny, native macOS floating panel that shows live system metrics — CPU, memory,
 disk I/O, network throughput, thermal state, and (on Intel Macs) CPU temperature
