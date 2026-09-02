@@ -59,8 +59,10 @@ final class MenuBarController: NSObject, NSMenuDelegate {
         menu.addItem(.separator())
 
         menu.addItem(submenu("Metrics", items: menuMetrics.map { id in
-            check(id.displayName, #selector(toggleMetric(_:)),
-                  on: settings.enabledMetrics.contains(id), represented: id.rawValue)
+            let item = check(id.displayName, #selector(toggleMetric(_:)),
+                             on: settings.enabledMetrics.contains(id), represented: id.rawValue)
+            item.toolTip = MetricFormatter.shortDescription(for: id)
+            return item
         }))
 
         menu.addItem(submenu("Update Interval", items: UpdateInterval.allCases.map { interval in

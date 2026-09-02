@@ -70,6 +70,22 @@ enum MetricFormatter {
         reading.components[key].map(string(for:)) ?? unavailable
     }
 
+    /// One-line description of a metric, independent of any current reading.
+    /// Used for the Metrics-menu tooltips and the Guide tab.
+    static func shortDescription(for id: MetricID) -> String {
+        switch id {
+        case .cpu: return "Total processor usage (0–100%)."
+        case .memory: return "Memory in use (0–100%), with memory-pressure state."
+        case .disk: return "Disk read (↓) and write (↑) throughput."
+        case .network: return "Network download (↓) and upload (↑) throughput."
+        case .temperature: return "System thermal state (Nominal → Critical) — not degrees."
+        case .cpuTemperature: return "CPU temperature in °C, read from the SMC (Intel Macs)."
+        case .fan: return "Fastest fan speed in RPM; “high” means near this Mac’s maximum."
+        case .battery: return "Battery charge level."
+        case .gpu: return "Unavailable — no public macOS API reports system-wide GPU load."
+        }
+    }
+
     /// A one-word plain-language status shown next to the value (never colour
     /// alone — spec §26), so "is this normal?" is answerable at a glance.
     static func stateHint(for id: MetricID, reading: MetricReading?) -> String? {
