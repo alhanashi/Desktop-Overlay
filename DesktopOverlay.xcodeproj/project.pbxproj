@@ -17,6 +17,7 @@
 		2B7283BA937C43DF2B9AB559 /* RateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94A9FD3889F1AC39A1321AE /* RateCalculator.swift */; };
 		2CA531DC361424F7CBC8C00C /* NetworkMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE6D944264355AFB4928D7 /* NetworkMetric.swift */; };
 		2D143E94542D35895C9371D2 /* CPUCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */; };
+		3738E8FB34977D6ADE4BD138 /* ResizeHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7EC47CE1FAF775AE3A1E4 /* ResizeHandleView.swift */; };
 		3B8153BB6BD79B1FCF216D4F /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */; };
 		4C898161D38DF4700AC03E47 /* MetricValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6DCD376FECECE857142CB /* MetricValue.swift */; };
 		540080A8E1D681B72E34C6B8 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */; };
@@ -60,6 +61,7 @@
 		19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryMetric.swift; sourceTree = "<group>"; };
 		1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindowController.swift; sourceTree = "<group>"; };
 		22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsCoordinator.swift; sourceTree = "<group>"; };
+		33C7EC47CE1FAF775AE3A1E4 /* ResizeHandleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeHandleView.swift; sourceTree = "<group>"; };
 		345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCalculatorTests.swift; sourceTree = "<group>"; };
 		3B35C7D5D68E570CC0CC4F1C /* SystemMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetric.swift; sourceTree = "<group>"; };
 		40BA2A8A10572AB3EA1F8540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */,
 				AF96F975DF994624291FAB3B /* OverlayView.swift */,
 				1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */,
+				33C7EC47CE1FAF775AE3A1E4 /* ResizeHandleView.swift */,
 				7227C06D46B316F827CE0BD8 /* SparklineView.swift */,
 			);
 			path = Overlay;
@@ -343,6 +346,7 @@
 				2A32B006495138B0A51B4834 /* OverlayView.swift in Sources */,
 				0818024C20666C806B9E6BC8 /* OverlayWindowController.swift in Sources */,
 				2B7283BA937C43DF2B9AB559 /* RateCalculator.swift in Sources */,
+				3738E8FB34977D6ADE4BD138 /* ResizeHandleView.swift in Sources */,
 				E35E58515161D57AC6018504 /* RingBuffer.swift in Sources */,
 				CC672AD4AAE97A79B57C98F5 /* SettingsStore.swift in Sources */,
 				20E14DBE51ACAA17A89B0813 /* SettingsView.swift in Sources */,

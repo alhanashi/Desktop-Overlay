@@ -1,23 +1,13 @@
 import SwiftUI
 
-/// Root SwiftUI view hosted inside the overlay panel.
+/// Root SwiftUI view hosted inside the overlay panel. Resizing is handled by a
+/// separate AppKit `ResizeHandleView` added by `OverlayWindowController`.
 struct OverlayRootView: View {
     @ObservedObject var settings: SettingsStore
     @ObservedObject var metrics: MetricsCoordinator
 
-    /// Called by the resize grip. Translation is a delta in global points.
-    var onResizeBegan: () -> Void
-    var onResizeChanged: (CGSize) -> Void
-    var onResizeEnded: () -> Void
-
     var body: some View {
         OverlayContentView(settings: settings, metrics: metrics)
-            .overlay(alignment: .bottomTrailing) {
-                ResizeGrip(onBegan: onResizeBegan,
-                           onChanged: onResizeChanged,
-                           onEnded: onResizeEnded)
-                    .padding(3)
-            }
             .preferredColorScheme(settings.appearance.colorScheme)
             .ignoresSafeArea()
     }
@@ -64,37 +54,5 @@ struct OverlayContentView: View {
         .contentShape(Rectangle())
         .accessibilityElement(children: .contain)
         .accessibilityLabel("System metrics overlay")
-    }
-}
-
-/// Small drag handle in the bottom-right corner for resizing the panel
-/// (borderless panels get no native edge-resize) (spec §3, §10).
-private struct ResizeGrip: View {
-    var onBegan: () -> Void
-    var onChanged: (CGSize) -> Void
-    var onEnded: () -> Void
-
-    @State private var active = false
-
-    var body: some View {
-        Image(systemName: "arrow.down.right.and.arrow.up.left")
-            .rotationEffect(.degrees(90))
-            .font(.system(size: 8, weight: .bold))
-            .foregroundStyle(.secondary)
-            .frame(width: 14, height: 14)
-            .contentShape(Rectangle())
-            .highPriorityGesture(
-                DragGesture(minimumDistance: 1, coordinateSpace: .global)
-                    .onChanged { value in
-                        if !active { active = true; onBegan() }
-                        onChanged(value.translation)
-                    }
-                    .onEnded { _ in
-                        active = false
-                        onEnded()
-                    }
-            )
-            .help("Drag to resize")
-            .accessibilityLabel("Resize overlay")
     }
 }

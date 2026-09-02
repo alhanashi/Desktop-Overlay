@@ -25,13 +25,7 @@ final class OverlayWindowController {
         let initialFrame = Self.resolveInitialFrame(settings: settings)
         panel = OverlayPanel(contentRect: initialFrame)
 
-        let hosting = NSHostingView(rootView: OverlayRootView(
-            settings: settings,
-            metrics: metrics,
-            onResizeBegan: {},
-            onResizeChanged: { _ in },
-            onResizeEnded: {}
-        ))
+        let hosting = NSHostingView(rootView: OverlayRootView(settings: settings, metrics: metrics))
         hosting.wantsLayer = true
         // The panel frame is authoritative — the SwiftUI content must fill it,
         // not resize it.
@@ -39,17 +33,20 @@ final class OverlayWindowController {
         panel.contentView = hosting
         panel.setContentSize(initialFrame.size)
 
-        // Wire the resize grip now that `self` exists.
-        hosting.rootView = OverlayRootView(
-            settings: settings,
-            metrics: metrics,
-            onResizeBegan: { [weak self] in self?.resizeStartFrame = self?.panel.frame },
-            onResizeChanged: { [weak self] translation in self?.applyResize(translation: translation) },
-            onResizeEnded: { [weak self] in
-                self?.resizeStartFrame = nil
-                self?.schedulePersist()
-            }
-        )
+        // AppKit resize grip, pinned to the bottom-right corner.
+        let handleSize: CGFloat = 16
+        let handle = ResizeHandleView(frame: NSRect(
+            x: hosting.bounds.maxX - handleSize, y: hosting.bounds.minY,
+            width: handleSize, height: handleSize
+        ))
+        handle.autoresizingMask = [.minXMargin, .maxYMargin]
+        handle.onBegan = { [weak self] in self?.resizeStartFrame = self?.panel.frame }
+        handle.onChanged = { [weak self] translation in self?.applyResize(translation: translation) }
+        handle.onEnded = { [weak self] in
+            self?.resizeStartFrame = nil
+            self?.schedulePersist()
+        }
+        hosting.addSubview(handle)
 
         applyLevel()
         applyClickThrough()
