@@ -52,6 +52,9 @@ struct OverlayContentView: View {
                 .strokeBorder(Color.primary.opacity(0.08), lineWidth: 1)
         )
         .contentShape(Rectangle())
+        // Explicit drag: the per-row `.help()` tooltips install tracking areas
+        // that would otherwise defeat `isMovableByWindowBackground`.
+        .gesture(WindowDragGesture())
         .accessibilityElement(children: .contain)
         .accessibilityLabel("System metrics overlay")
     }
