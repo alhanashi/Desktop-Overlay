@@ -14,10 +14,17 @@ final class MenuBarController: NSObject, NSMenuDelegate {
     private let openSettingsAction: () -> Void
     private var cancellables = Set<AnyCancellable>()
 
+    /// Same set the Settings ▸ Metrics tab offers: every toggleable metric, in
+    /// overlay order. GPU is excluded (it has no working toggle anywhere); the
+    /// SMC sensors appear only when the SMC is readable.
     private var menuMetrics: [MetricID] {
-        var ids: [MetricID] = [.cpu, .memory, .disk, .network, .temperature]
-        if SMCService.shared.isAvailable { ids += [.cpuTemperature, .fan] }
-        return ids
+        MetricID.displayOrder.filter { id in
+            switch id {
+            case .gpu: return false
+            case .cpuTemperature, .fan: return SMCService.shared.isAvailable
+            default: return true
+            }
+        }
     }
 
     init(settings: SettingsStore,
