@@ -11,12 +11,11 @@ Activity Monitor.
 
 A lightweight, open-source alternative to iStat Menus / MenuMeters / Stats.
 
-<!-- Screenshots: add docs/screenshot-light.png and docs/screenshot-dark.png, then:
 <p align="center">
-  <img src="docs/screenshot-light.png" width="320" alt="Desktop Overlay, light">
-  <img src="docs/screenshot-dark.png" width="320" alt="Desktop Overlay, dark">
+  <img src="docs/screenshot-light.png" width="330" alt="Desktop Overlay in light mode">
+  &nbsp;&nbsp;
+  <img src="docs/screenshot-dark.png" width="330" alt="Desktop Overlay in dark mode">
 </p>
--->
 
 
 - **100% native.** Swift + SwiftUI + AppKit. No Electron, no web view, no
