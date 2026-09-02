@@ -9,6 +9,8 @@ enum MetricID: String, CaseIterable, Codable, Sendable {
     case disk
     case network
     case temperature
+    case cpuTemperature
+    case fan
     case gpu
     case battery
 
@@ -20,6 +22,8 @@ enum MetricID: String, CaseIterable, Codable, Sendable {
         case .disk: return "Disk"
         case .network: return "Net"
         case .temperature: return "Temp"
+        case .cpuTemperature: return "CPU°"
+        case .fan: return "Fan"
         case .gpu: return "GPU"
         case .battery: return "Batt"
         }
@@ -32,14 +36,18 @@ enum MetricID: String, CaseIterable, Codable, Sendable {
         case .memory: return "Memory"
         case .disk: return "Disk"
         case .network: return "Network"
-        case .temperature: return "Temperature"
+        case .temperature: return "Temperature (thermal state)"
+        case .cpuTemperature: return "CPU Temperature (°C, SMC)"
+        case .fan: return "Fan Speed (SMC)"
         case .gpu: return "GPU"
         case .battery: return "Battery"
         }
     }
 
     /// Fixed display order in the overlay.
-    static let displayOrder: [MetricID] = [.cpu, .memory, .disk, .network, .temperature, .gpu, .battery]
+    static let displayOrder: [MetricID] = [
+        .cpu, .memory, .disk, .network, .temperature, .cpuTemperature, .fan, .gpu, .battery,
+    ]
 }
 
 /// A single displayable quantity. `.unavailable` is rendered as "—" (spec §27).
@@ -47,6 +55,8 @@ enum MetricValue: Equatable, Sendable {
     case percent(Double)          // 0...100
     case bytes(Double)            // absolute size, formatted with binary units
     case bytesPerSecond(Double)   // rate, formatted with binary units + "/s"
+    case celsius(Double)          // temperature in °C
+    case rpm(Double)              // fan speed
     case text(String)
     case unavailable
 }

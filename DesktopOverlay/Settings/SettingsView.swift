@@ -71,22 +71,39 @@ private struct AppearanceSettingsTab: View {
 
 private struct MetricsSettingsTab: View {
     @EnvironmentObject private var settings: SettingsStore
+    @State private var smcAvailable = SMCService.shared.isAvailable
 
-    private let available: [MetricID] = [.cpu, .memory, .disk, .network, .temperature, .battery]
+    private let standard: [MetricID] = [.cpu, .memory, .disk, .network, .temperature, .battery]
 
     var body: some View {
         Form {
             Section {
-                ForEach(available, id: \.self) { id in
+                ForEach(standard, id: \.self) { id in
                     Toggle(id.displayName, isOn: binding(for: id))
                 }
             }
+
+            Section {
+                Toggle(MetricID.cpuTemperature.displayName, isOn: binding(for: .cpuTemperature))
+                    .disabled(!smcAvailable)
+                Toggle(MetricID.fan.displayName, isOn: binding(for: .fan))
+                    .disabled(!smcAvailable)
+            } header: {
+                Text("Sensors (SMC)")
+            } footer: {
+                Text(smcAvailable
+                     ? "These read undocumented SMC keys. They may stop working after a macOS update and need no special permissions."
+                     : "SMC sensors are unavailable on this Mac (typically Apple Silicon or a fanless model).")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
             Section {
                 Toggle("GPU", isOn: .constant(false))
                     .disabled(true)
-                    .help("No reliable public macOS API exposes GPU usage.")
+                    .help("No public macOS API exposes system-wide GPU usage.")
             } footer: {
-                Text("GPU, Fan and CPU temperature in °C are not available through public macOS APIs. Temperature shows the system thermal state instead.")
+                Text("GPU usage is not available through public macOS APIs.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

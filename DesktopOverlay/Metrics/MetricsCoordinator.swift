@@ -39,6 +39,8 @@ final class MetricsCoordinator: ObservableObject {
         .disk: DiskMetric(),
         .network: NetworkMetric(),
         .temperature: ThermalMetric(),
+        .cpuTemperature: SMCTemperatureMetric(),
+        .fan: FanMetric(),
         .battery: BatteryMetric(),
     ]
 

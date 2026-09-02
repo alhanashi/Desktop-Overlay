@@ -71,6 +71,7 @@ xcodegen generate
 | Keep above everything | Menu bar ▸ **Always on Top** (on by default) |
 | Let clicks pass through | Menu bar ▸ **Click Through** |
 | Change what's shown | Menu bar ▸ **Metrics**, or the Settings ▸ Metrics tab |
+| Show CPU °C / fan RPM | Settings ▸ Metrics ▸ **Sensors (SMC)** — off by default, Intel Macs only (see *Known limitations*) |
 | Change refresh rate | Menu bar ▸ **Update Interval** (1 / 2 / 5 s) |
 | Start with macOS | Menu bar ▸ **Launch at Login**, or Settings ▸ General |
 | Recenter if lost | Menu bar ▸ **Reset Position** |
@@ -162,14 +163,32 @@ No other part of the app needs to change.
 Everything here is a deliberate consequence of using **public APIs only**
 (spec §20):
 
-| Metric | Public API status | What the app does instead |
+| Metric | Public API status | What the app does |
 |---|---|---|
-| **CPU / GPU temperature (°C)** | No reliable public API on Apple Silicon or Intel without private SMC keys or a kext. | Shows `ProcessInfo.thermalState`: **Nominal / Fair / Serious / Critical**. |
-| **GPU usage** | No public API. | Architecture-ready (`SystemMetric`); the Settings toggle is disabled with an explanation. |
-| **Fan RPM** | No public API (private SMC). | Not implemented; can be added later without redesign. |
-| **CPU frequency** | No reliable public API. | Not implemented. |
+| **Thermal state** | `ProcessInfo.thermalState` — public. | Shown as **Nominal / Fair / Serious / Critical** (the *Temperature* metric, on by default). |
+| **CPU temperature (°C)** | No *documented* API. Readable from the **SMC** on Intel Macs via undocumented keys. | Optional **Sensors (SMC)** metric, **off by default**. Uses `SMCService`; see below. Apple Silicon reports "unavailable". |
+| **Fan RPM** | Same as CPU °C — SMC only, undocumented. | Optional **Sensors (SMC)** metric, off by default. |
+| **GPU usage** | No public API for system-wide GPU load. | Architecture-ready (`SystemMetric`); the Settings toggle is disabled with an explanation. |
+| **CPU frequency** | No reliable public API. | Not implemented; can be added without redesign. |
 | **Battery** | `IOPSCopyPowerSourcesInfo` — public. | Implemented (`BatteryMetric`), off by default to keep the overlay small. Desktops report "unavailable". |
 | **Disk I/O** | `IOBlockStorageDriver` statistics via IOKit — public, **but blocked by App Sandbox**. | App Sandbox is disabled. If you re-enable it, the Disk row degrades to `—`; every other metric still works. |
+
+### Optional SMC sensors
+
+`DesktopOverlay/Services/SMCService.swift` reads CPU temperature and fan speed
+from the System Management Controller. This is **not a documented Apple API** —
+the 4-character keys (`TC0P`, `F0Ac`, …) and their encodings (`sp78`, `fpe2`,
+`flt`) are community-reverse-engineered. It is included because a system monitor
+without a temperature reading is of limited use, and every comparable tool
+(iStat Menus, TG Pro, Stats) does the same.
+
+- **Off by default.** Enable per-metric in Settings ▸ Metrics ▸ *Sensors (SMC)*.
+- **No special privileges.** No root, no SIP/Gatekeeper changes, no kext.
+- **May break on a future macOS** — if a key stops responding the row shows `—`
+  and nothing else is affected.
+- **Isolated.** Delete `SMCService.swift`, `SMCTemperatureMetric.swift` and
+  `FanMetric.swift`, drop the two `MetricID` cases, and the app is back to
+  100% documented APIs.
 
 The app makes **zero** network connections and stores nothing outside
 `UserDefaults`.

@@ -52,6 +52,8 @@ enum MetricFormatter {
         case .percent(let v): return percent(v)
         case .bytes(let v): return size(v)
         case .bytesPerSecond(let v): return rate(v)
+        case .celsius(let v): return String(format: "%.0f°C", v)
+        case .rpm(let v): return "\(Int(v.rounded())) rpm"
         case .text(let s): return s
         case .unavailable: return unavailable
         }

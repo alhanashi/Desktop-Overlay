@@ -13,7 +13,11 @@ final class MenuBarController: NSObject, NSMenuDelegate {
     private let launchService: LaunchAtLoginService
     private var cancellables = Set<AnyCancellable>()
 
-    private let menuMetrics: [MetricID] = [.cpu, .memory, .disk, .network, .temperature]
+    private var menuMetrics: [MetricID] {
+        var ids: [MetricID] = [.cpu, .memory, .disk, .network, .temperature]
+        if SMCService.shared.isAvailable { ids += [.cpuTemperature, .fan] }
+        return ids
+    }
 
     init(settings: SettingsStore,
          metrics: MetricsCoordinator,

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0328801B599E34BBAF0C625F /* SparklineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7227C06D46B316F827CE0BD8 /* SparklineView.swift */; };
+		0391B9A7DA3E3C95F41472AD /* SMCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF653EBC8A0466B4D72AC31 /* SMCService.swift */; };
 		0818024C20666C806B9E6BC8 /* OverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */; };
 		0E3D388BFC1A897DA1370C28 /* BatteryMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BDD001C574ADB8856AE981 /* BatteryMetric.swift */; };
 		2029C006F053AF54A70D637E /* LaunchAtLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661EFF1F1A3AE4513D11E3E /* LaunchAtLoginService.swift */; };
@@ -19,6 +20,7 @@
 		2D143E94542D35895C9371D2 /* CPUCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */; };
 		3738E8FB34977D6ADE4BD138 /* ResizeHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C7EC47CE1FAF775AE3A1E4 /* ResizeHandleView.swift */; };
 		3B8153BB6BD79B1FCF216D4F /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */; };
+		4C38F923D8B10C5B37817B1B /* FanMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DE6C11E0F1E35367F3855E /* FanMetric.swift */; };
 		4C898161D38DF4700AC03E47 /* MetricValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6DCD376FECECE857142CB /* MetricValue.swift */; };
 		540080A8E1D681B72E34C6B8 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */; };
 		6799962E36DDA889CF74E8C1 /* SystemMetricsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */; };
@@ -29,11 +31,13 @@
 		92D90B0AD7EE56B7E0BDF572 /* MetricFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */; };
 		94A7F385E7F4E5FB3148601D /* OverlayGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A28D04D4171616B05F87F /* OverlayGeometry.swift */; };
 		9A34550CC56C06B30AE8E045 /* CPUMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0C7B588FF26E8E05E1A3E /* CPUMetric.swift */; };
+		9B414C7087A6D312D07F1192 /* SMCDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3466B48122AFE59C662C5A1 /* SMCDecodeTests.swift */; };
 		AA7D4E90AE6A441240EF05CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF437934DC13777062EF59 /* AppDelegate.swift */; };
 		B1A19D8B712115039CB69871 /* MemoryMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */; };
 		B81CE266F565BAD52948C136 /* ThermalMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1C07A30B746660AAC8FB /* ThermalMetric.swift */; };
 		B8BB2E99F2B518CA5F79BD53 /* MemoryCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32E875055086178D60C9DB /* MemoryCalculatorTests.swift */; };
 		B97629F756D3DD20119829BD /* OverlayGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */; };
+		BB11FFEA85B441CABF721B40 /* SMCTemperatureMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = D809553142639F9A55564D79 /* SMCTemperatureMetric.swift */; };
 		C80BDB250F00750ACE1901BE /* CPUCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D41A9797264A258542B3A /* CPUCalculator.swift */; };
 		CC672AD4AAE97A79B57C98F5 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D7115CE8EA99FD17F1B678 /* SettingsStore.swift */; };
 		CEC60CF9AE805FBDBC172E56 /* RateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79337E47F5319114D336C71A /* RateCalculatorTests.swift */; };
@@ -74,6 +78,7 @@
 		79337E47F5319114D336C71A /* RateCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCalculatorTests.swift; sourceTree = "<group>"; };
 		7978B6928FF79645F8FD48B0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		7B32A1A6E55F5FBD006ED682 /* DesktopOverlayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopOverlayApp.swift; sourceTree = "<group>"; };
+		7FF653EBC8A0466B4D72AC31 /* SMCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCService.swift; sourceTree = "<group>"; };
 		800A28D04D4171616B05F87F /* OverlayGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayGeometry.swift; sourceTree = "<group>"; };
 		84ACC0F585D4AAF4D724CAB1 /* RingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricFormatter.swift; sourceTree = "<group>"; };
@@ -84,8 +89,11 @@
 		ABFE6D944264355AFB4928D7 /* NetworkMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMetric.swift; sourceTree = "<group>"; };
 		AF96F975DF994624291FAB3B /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		B9B6DCD376FECECE857142CB /* MetricValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricValue.swift; sourceTree = "<group>"; };
+		C3466B48122AFE59C662C5A1 /* SMCDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCDecodeTests.swift; sourceTree = "<group>"; };
+		C4DE6C11E0F1E35367F3855E /* FanMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanMetric.swift; sourceTree = "<group>"; };
 		C595DACA5A5E8898146E0C80 /* DiskMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskMetric.swift; sourceTree = "<group>"; };
 		CB119DFEA35AA40D2D3185A1 /* DesktopOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesktopOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D809553142639F9A55564D79 /* SMCTemperatureMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCTemperatureMetric.swift; sourceTree = "<group>"; };
 		E30110D8995A6B2746DD9F57 /* DesktopOverlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopOverlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetricsService.swift; sourceTree = "<group>"; };
 		E6D7115CE8EA99FD17F1B678 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				7661EFF1F1A3AE4513D11E3E /* LaunchAtLoginService.swift */,
+				7FF653EBC8A0466B4D72AC31 /* SMCService.swift */,
 				E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */,
 			);
 			path = Services;
@@ -132,10 +141,12 @@
 				F8BDD001C574ADB8856AE981 /* BatteryMetric.swift */,
 				FAF0C7B588FF26E8E05E1A3E /* CPUMetric.swift */,
 				C595DACA5A5E8898146E0C80 /* DiskMetric.swift */,
+				C4DE6C11E0F1E35367F3855E /* FanMetric.swift */,
 				19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */,
 				22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */,
 				B9B6DCD376FECECE857142CB /* MetricValue.swift */,
 				ABFE6D944264355AFB4928D7 /* NetworkMetric.swift */,
+				D809553142639F9A55564D79 /* SMCTemperatureMetric.swift */,
 				3B35C7D5D68E570CC0CC4F1C /* SystemMetric.swift */,
 				774B1C07A30B746660AAC8FB /* ThermalMetric.swift */,
 			);
@@ -229,6 +240,7 @@
 				79337E47F5319114D336C71A /* RateCalculatorTests.swift */,
 				01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */,
 				A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */,
+				C3466B48122AFE59C662C5A1 /* SMCDecodeTests.swift */,
 			);
 			path = DesktopOverlayTests;
 			sourceTree = "<group>";
@@ -332,6 +344,7 @@
 				6956CCCD0B96101015AB9F1B /* DecayingMax.swift in Sources */,
 				845B186F14E4DFBF71A8E71E /* DesktopOverlayApp.swift in Sources */,
 				83417B52ADDA206D6E1F35D6 /* DiskMetric.swift in Sources */,
+				4C38F923D8B10C5B37817B1B /* FanMetric.swift in Sources */,
 				2029C006F053AF54A70D637E /* LaunchAtLoginService.swift in Sources */,
 				E8E762533493A76F19973567 /* MemoryCalculator.swift in Sources */,
 				B1A19D8B712115039CB69871 /* MemoryMetric.swift in Sources */,
@@ -348,6 +361,8 @@
 				2B7283BA937C43DF2B9AB559 /* RateCalculator.swift in Sources */,
 				3738E8FB34977D6ADE4BD138 /* ResizeHandleView.swift in Sources */,
 				E35E58515161D57AC6018504 /* RingBuffer.swift in Sources */,
+				0391B9A7DA3E3C95F41472AD /* SMCService.swift in Sources */,
+				BB11FFEA85B441CABF721B40 /* SMCTemperatureMetric.swift in Sources */,
 				CC672AD4AAE97A79B57C98F5 /* SettingsStore.swift in Sources */,
 				20E14DBE51ACAA17A89B0813 /* SettingsView.swift in Sources */,
 				0328801B599E34BBAF0C625F /* SparklineView.swift in Sources */,
@@ -366,6 +381,7 @@
 				B97629F756D3DD20119829BD /* OverlayGeometryTests.swift in Sources */,
 				CEC60CF9AE805FBDBC172E56 /* RateCalculatorTests.swift in Sources */,
 				3B8153BB6BD79B1FCF216D4F /* RingBufferTests.swift in Sources */,
+				9B414C7087A6D312D07F1192 /* SMCDecodeTests.swift in Sources */,
 				540080A8E1D681B72E34C6B8 /* SettingsStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
