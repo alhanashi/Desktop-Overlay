@@ -28,8 +28,8 @@ struct OverlayRowView: View {
 
             if !compact, let hint = MetricFormatter.stateHint(for: id, reading: reading) {
                 Text(hint)
-                    .font(.system(size: fontSize.labelPointSize))
-                    .foregroundStyle(.tertiary)
+                    .font(.system(size: fontSize.labelPointSize, weight: .medium))
+                    .foregroundStyle(.primary)
                     .lineLimit(1)
                     .fixedSize()
             }
