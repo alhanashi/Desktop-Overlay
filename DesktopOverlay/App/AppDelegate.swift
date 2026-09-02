@@ -18,6 +18,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var overlayController: OverlayWindowController?
     private var menuBarController: MenuBarController?
+    private lazy var settingsWindow = SettingsWindowController(settings: settings)
     private var cancellables = Set<AnyCancellable>()
 
     /// True when the process is running the XCTest bundle. In that case we skip
@@ -41,7 +42,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let menuBar = MenuBarController(settings: settings,
                                        metrics: metrics,
                                        overlay: overlay,
-                                       launchService: launchService)
+                                       launchService: launchService,
+                                       openSettings: { [weak self] in self?.settingsWindow.show() })
         menuBarController = menuBar
 
         // Apply the "launch at login" toggle whenever it changes in Settings.

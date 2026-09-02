@@ -26,6 +26,7 @@
 		540080A8E1D681B72E34C6B8 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */; };
 		6799962E36DDA889CF74E8C1 /* SystemMetricsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */; };
 		6956CCCD0B96101015AB9F1B /* DecayingMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886AE9A76D0304D3AEB6E20 /* DecayingMax.swift */; };
+		69659EB706536ECF267675E8 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5088012DA4D9A7817421C /* SettingsWindowController.swift */; };
 		7A27A874677D9DE394E9CBF4 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D76AC324BA84E9CEC7789 /* MenuBarController.swift */; };
 		83417B52ADDA206D6E1F35D6 /* DiskMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595DACA5A5E8898146E0C80 /* DiskMetric.swift */; };
 		845B186F14E4DFBF71A8E71E /* DesktopOverlayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B32A1A6E55F5FBD006ED682 /* DesktopOverlayApp.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
 		0B9D76AC324BA84E9CEC7789 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		12D5088012DA4D9A7817421C /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryMetric.swift; sourceTree = "<group>"; };
 		1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindowController.swift; sourceTree = "<group>"; };
 		22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsCoordinator.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				E6D7115CE8EA99FD17F1B678 /* SettingsStore.swift */,
 				7978B6928FF79645F8FD48B0 /* SettingsView.swift */,
+				12D5088012DA4D9A7817421C /* SettingsWindowController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				BB11FFEA85B441CABF721B40 /* SMCTemperatureMetric.swift in Sources */,
 				CC672AD4AAE97A79B57C98F5 /* SettingsStore.swift in Sources */,
 				20E14DBE51ACAA17A89B0813 /* SettingsView.swift in Sources */,
+				69659EB706536ECF267675E8 /* SettingsWindowController.swift in Sources */,
 				0328801B599E34BBAF0C625F /* SparklineView.swift in Sources */,
 				DC11921C713A40C7D7B44156 /* SystemMetric.swift in Sources */,
 				6799962E36DDA889CF74E8C1 /* SystemMetricsService.swift in Sources */,

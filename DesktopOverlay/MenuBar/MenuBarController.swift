@@ -11,6 +11,7 @@ final class MenuBarController: NSObject, NSMenuDelegate {
     private let metrics: MetricsCoordinator
     private weak var overlay: OverlayWindowController?
     private let launchService: LaunchAtLoginService
+    private let openSettingsAction: () -> Void
     private var cancellables = Set<AnyCancellable>()
 
     private var menuMetrics: [MetricID] {
@@ -22,12 +23,14 @@ final class MenuBarController: NSObject, NSMenuDelegate {
     init(settings: SettingsStore,
          metrics: MetricsCoordinator,
          overlay: OverlayWindowController,
-         launchService: LaunchAtLoginService) {
+         launchService: LaunchAtLoginService,
+         openSettings: @escaping () -> Void) {
         self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         self.settings = settings
         self.metrics = metrics
         self.overlay = overlay
         self.launchService = launchService
+        self.openSettingsAction = openSettings
         super.init()
 
         if let button = statusItem.button {
@@ -119,12 +122,7 @@ final class MenuBarController: NSObject, NSMenuDelegate {
     }
 
     @objc private func openSettings() {
-        NSApp.activate(ignoringOtherApps: true)
-        if #available(macOS 14.0, *) {
-            NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
-        } else {
-            NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
-        }
+        openSettingsAction()
     }
 
     @objc private func quit() {

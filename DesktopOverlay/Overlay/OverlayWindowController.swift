@@ -97,6 +97,10 @@ final class OverlayWindowController {
     }
 
     private func applyLevel() {
+        // `isFloatingPanel` must also track the setting: while it is true the
+        // panel stays above other windows regardless of `level`, which made the
+        // toggle look like it did nothing when switched off.
+        panel.isFloatingPanel = settings.alwaysOnTop
         panel.level = settings.alwaysOnTop ? .floating : .normal
     }
 
