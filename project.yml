@@ -1,0 +1,73 @@
+name: DesktopOverlay
+options:
+  bundleIdPrefix: com.alhanashi
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "-"
+    ENABLE_HARDENED_RUNTIME: NO
+    GENERATE_INFOPLIST_FILE: NO
+    DEAD_CODE_STRIPPING: YES
+    GCC_WARN_ABOUT_RETURN_TYPE: YES
+    CLANG_WARN_DOCUMENTATION_COMMENTS: NO
+
+targets:
+  DesktopOverlay:
+    type: application
+    platform: macOS
+    sources:
+      - path: DesktopOverlay
+    settings:
+      base:
+        INFOPLIST_FILE: DesktopOverlay/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.alhanashi.DesktopOverlay
+        PRODUCT_NAME: DesktopOverlay
+        CODE_SIGN_ENTITLEMENTS: DesktopOverlay/DesktopOverlay.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        COMBINE_HIDPI_IMAGES: YES
+        ENABLE_PREVIEWS: YES
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/../Frameworks"
+
+  DesktopOverlayTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: DesktopOverlayTests
+    dependencies:
+      - target: DesktopOverlay
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.alhanashi.DesktopOverlayTests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/DesktopOverlay.app/Contents/MacOS/DesktopOverlay"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+
+schemes:
+  DesktopOverlay:
+    build:
+      targets:
+        DesktopOverlay: all
+        DesktopOverlayTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - DesktopOverlayTests
+    profile:
+      config: Release
+    archive:
+      config: Release

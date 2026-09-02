@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0328801B599E34BBAF0C625F /* SparklineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7227C06D46B316F827CE0BD8 /* SparklineView.swift */; };
+		0818024C20666C806B9E6BC8 /* OverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */; };
+		0E3D388BFC1A897DA1370C28 /* BatteryMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BDD001C574ADB8856AE981 /* BatteryMetric.swift */; };
+		2029C006F053AF54A70D637E /* LaunchAtLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661EFF1F1A3AE4513D11E3E /* LaunchAtLoginService.swift */; };
+		20E14DBE51ACAA17A89B0813 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7978B6928FF79645F8FD48B0 /* SettingsView.swift */; };
+		2A32B006495138B0A51B4834 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF96F975DF994624291FAB3B /* OverlayView.swift */; };
+		2A6F48198C799E377F78FE7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6551C48DEDD32BB0A7DF8F4F /* Assets.xcassets */; };
+		2B7283BA937C43DF2B9AB559 /* RateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94A9FD3889F1AC39A1321AE /* RateCalculator.swift */; };
+		2CA531DC361424F7CBC8C00C /* NetworkMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFE6D944264355AFB4928D7 /* NetworkMetric.swift */; };
+		2D143E94542D35895C9371D2 /* CPUCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */; };
+		3B8153BB6BD79B1FCF216D4F /* RingBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */; };
+		4C898161D38DF4700AC03E47 /* MetricValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6DCD376FECECE857142CB /* MetricValue.swift */; };
+		540080A8E1D681B72E34C6B8 /* SettingsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */; };
+		6799962E36DDA889CF74E8C1 /* SystemMetricsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */; };
+		6956CCCD0B96101015AB9F1B /* DecayingMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886AE9A76D0304D3AEB6E20 /* DecayingMax.swift */; };
+		7A27A874677D9DE394E9CBF4 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D76AC324BA84E9CEC7789 /* MenuBarController.swift */; };
+		83417B52ADDA206D6E1F35D6 /* DiskMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595DACA5A5E8898146E0C80 /* DiskMetric.swift */; };
+		845B186F14E4DFBF71A8E71E /* DesktopOverlayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B32A1A6E55F5FBD006ED682 /* DesktopOverlayApp.swift */; };
+		92D90B0AD7EE56B7E0BDF572 /* MetricFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */; };
+		94A7F385E7F4E5FB3148601D /* OverlayGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A28D04D4171616B05F87F /* OverlayGeometry.swift */; };
+		9A34550CC56C06B30AE8E045 /* CPUMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0C7B588FF26E8E05E1A3E /* CPUMetric.swift */; };
+		AA7D4E90AE6A441240EF05CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF437934DC13777062EF59 /* AppDelegate.swift */; };
+		B1A19D8B712115039CB69871 /* MemoryMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */; };
+		B81CE266F565BAD52948C136 /* ThermalMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1C07A30B746660AAC8FB /* ThermalMetric.swift */; };
+		B8BB2E99F2B518CA5F79BD53 /* MemoryCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32E875055086178D60C9DB /* MemoryCalculatorTests.swift */; };
+		B97629F756D3DD20119829BD /* OverlayGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */; };
+		C80BDB250F00750ACE1901BE /* CPUCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D41A9797264A258542B3A /* CPUCalculator.swift */; };
+		CC672AD4AAE97A79B57C98F5 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D7115CE8EA99FD17F1B678 /* SettingsStore.swift */; };
+		CEC60CF9AE805FBDBC172E56 /* RateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79337E47F5319114D336C71A /* RateCalculatorTests.swift */; };
+		DC11921C713A40C7D7B44156 /* SystemMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35C7D5D68E570CC0CC4F1C /* SystemMetric.swift */; };
+		E35E58515161D57AC6018504 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACC0F585D4AAF4D724CAB1 /* RingBuffer.swift */; };
+		E8E762533493A76F19973567 /* MemoryCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614883D566623155AF486AA /* MemoryCalculator.swift */; };
+		EF100CBB7E13DD7DC7A6AE8E /* OverlayRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */; };
+		F90B20EAD35C0367843FD6E4 /* MetricsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */; };
+		FC1E2D93D94934BC6C5D6810 /* OverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282686340D1ABB1B40EE894 /* OverlayPanel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8BD1657CF665D8F68A82132 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E7406EBED8BAE4AE59BFA93 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DD8BD864C19A6B6F59D3B52;
+			remoteInfo = DesktopOverlay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
+		0B9D76AC324BA84E9CEC7789 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryMetric.swift; sourceTree = "<group>"; };
+		1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindowController.swift; sourceTree = "<group>"; };
+		22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsCoordinator.swift; sourceTree = "<group>"; };
+		345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCalculatorTests.swift; sourceTree = "<group>"; };
+		3B35C7D5D68E570CC0CC4F1C /* SystemMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetric.swift; sourceTree = "<group>"; };
+		40BA2A8A10572AB3EA1F8540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		637D41A9797264A258542B3A /* CPUCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCalculator.swift; sourceTree = "<group>"; };
+		6551C48DEDD32BB0A7DF8F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6614883D566623155AF486AA /* MemoryCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCalculator.swift; sourceTree = "<group>"; };
+		7227C06D46B316F827CE0BD8 /* SparklineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparklineView.swift; sourceTree = "<group>"; };
+		7661EFF1F1A3AE4513D11E3E /* LaunchAtLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginService.swift; sourceTree = "<group>"; };
+		774B1C07A30B746660AAC8FB /* ThermalMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermalMetric.swift; sourceTree = "<group>"; };
+		79337E47F5319114D336C71A /* RateCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCalculatorTests.swift; sourceTree = "<group>"; };
+		7978B6928FF79645F8FD48B0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		7B32A1A6E55F5FBD006ED682 /* DesktopOverlayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopOverlayApp.swift; sourceTree = "<group>"; };
+		800A28D04D4171616B05F87F /* OverlayGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayGeometry.swift; sourceTree = "<group>"; };
+		84ACC0F585D4AAF4D724CAB1 /* RingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
+		86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricFormatter.swift; sourceTree = "<group>"; };
+		8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayGeometryTests.swift; sourceTree = "<group>"; };
+		8D95B1CD8311E6DA2313B768 /* DesktopOverlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DesktopOverlay.entitlements; sourceTree = "<group>"; };
+		A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
+		A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRowView.swift; sourceTree = "<group>"; };
+		ABFE6D944264355AFB4928D7 /* NetworkMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMetric.swift; sourceTree = "<group>"; };
+		AF96F975DF994624291FAB3B /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		B9B6DCD376FECECE857142CB /* MetricValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricValue.swift; sourceTree = "<group>"; };
+		C595DACA5A5E8898146E0C80 /* DiskMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskMetric.swift; sourceTree = "<group>"; };
+		CB119DFEA35AA40D2D3185A1 /* DesktopOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesktopOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E30110D8995A6B2746DD9F57 /* DesktopOverlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopOverlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetricsService.swift; sourceTree = "<group>"; };
+		E6D7115CE8EA99FD17F1B678 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		EB32E875055086178D60C9DB /* MemoryCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCalculatorTests.swift; sourceTree = "<group>"; };
+		F0DF437934DC13777062EF59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F282686340D1ABB1B40EE894 /* OverlayPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPanel.swift; sourceTree = "<group>"; };
+		F886AE9A76D0304D3AEB6E20 /* DecayingMax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecayingMax.swift; sourceTree = "<group>"; };
+		F8BDD001C574ADB8856AE981 /* BatteryMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryMetric.swift; sourceTree = "<group>"; };
+		F94A9FD3889F1AC39A1321AE /* RateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateCalculator.swift; sourceTree = "<group>"; };
+		FAF0C7B588FF26E8E05E1A3E /* CPUMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUMetric.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		234FF4914D478FD142C6C2E6 = {
+			isa = PBXGroup;
+			children = (
+				D5DA812DCA42CFACE47A7B8A /* DesktopOverlay */,
+				F2C988EE8251E20E9DB424A4 /* DesktopOverlayTests */,
+				ADA4192BCBA740F649FD8E23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		48C70103A9C1786CF09CC2D6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E6D7115CE8EA99FD17F1B678 /* SettingsStore.swift */,
+				7978B6928FF79645F8FD48B0 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		5B4867AF672469B346772020 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7661EFF1F1A3AE4513D11E3E /* LaunchAtLoginService.swift */,
+				E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		89F2F48BF0644E32A28C8C5B /* Metrics */ = {
+			isa = PBXGroup;
+			children = (
+				F8BDD001C574ADB8856AE981 /* BatteryMetric.swift */,
+				FAF0C7B588FF26E8E05E1A3E /* CPUMetric.swift */,
+				C595DACA5A5E8898146E0C80 /* DiskMetric.swift */,
+				19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */,
+				22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */,
+				B9B6DCD376FECECE857142CB /* MetricValue.swift */,
+				ABFE6D944264355AFB4928D7 /* NetworkMetric.swift */,
+				3B35C7D5D68E570CC0CC4F1C /* SystemMetric.swift */,
+				774B1C07A30B746660AAC8FB /* ThermalMetric.swift */,
+			);
+			path = Metrics;
+			sourceTree = "<group>";
+		};
+		9B501A22F933A701D6992337 /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				F282686340D1ABB1B40EE894 /* OverlayPanel.swift */,
+				A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */,
+				AF96F975DF994624291FAB3B /* OverlayView.swift */,
+				1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */,
+				7227C06D46B316F827CE0BD8 /* SparklineView.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
+		ADA4192BCBA740F649FD8E23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E30110D8995A6B2746DD9F57 /* DesktopOverlay.app */,
+				CB119DFEA35AA40D2D3185A1 /* DesktopOverlayTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C23BB41478B452D2440F3685 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F0DF437934DC13777062EF59 /* AppDelegate.swift */,
+				7B32A1A6E55F5FBD006ED682 /* DesktopOverlayApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CC3A3247C0872AB45C49DBB0 /* MenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				0B9D76AC324BA84E9CEC7789 /* MenuBarController.swift */,
+			);
+			path = MenuBar;
+			sourceTree = "<group>";
+		};
+		D5DA812DCA42CFACE47A7B8A /* DesktopOverlay */ = {
+			isa = PBXGroup;
+			children = (
+				C23BB41478B452D2440F3685 /* App */,
+				CC3A3247C0872AB45C49DBB0 /* MenuBar */,
+				89F2F48BF0644E32A28C8C5B /* Metrics */,
+				9B501A22F933A701D6992337 /* Overlay */,
+				E74D04ABE769E7E7063FBF5C /* Resources */,
+				5B4867AF672469B346772020 /* Services */,
+				48C70103A9C1786CF09CC2D6 /* Settings */,
+				D6560E1E944355A092C2A52D /* Utilities */,
+				8D95B1CD8311E6DA2313B768 /* DesktopOverlay.entitlements */,
+				40BA2A8A10572AB3EA1F8540 /* Info.plist */,
+			);
+			path = DesktopOverlay;
+			sourceTree = "<group>";
+		};
+		D6560E1E944355A092C2A52D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				637D41A9797264A258542B3A /* CPUCalculator.swift */,
+				F886AE9A76D0304D3AEB6E20 /* DecayingMax.swift */,
+				6614883D566623155AF486AA /* MemoryCalculator.swift */,
+				86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */,
+				800A28D04D4171616B05F87F /* OverlayGeometry.swift */,
+				F94A9FD3889F1AC39A1321AE /* RateCalculator.swift */,
+				84ACC0F585D4AAF4D724CAB1 /* RingBuffer.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E74D04ABE769E7E7063FBF5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6551C48DEDD32BB0A7DF8F4F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F2C988EE8251E20E9DB424A4 /* DesktopOverlayTests */ = {
+			isa = PBXGroup;
+			children = (
+				345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */,
+				EB32E875055086178D60C9DB /* MemoryCalculatorTests.swift */,
+				8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */,
+				79337E47F5319114D336C71A /* RateCalculatorTests.swift */,
+				01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */,
+				A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */,
+			);
+			path = DesktopOverlayTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5EBA689444098142980FF2B9 /* DesktopOverlayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A4055914731777F3378C4B3 /* Build configuration list for PBXNativeTarget "DesktopOverlayTests" */;
+			buildPhases = (
+				CEB3C6ED2BF0027ECD5FB060 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7DD79FC914D2ADC7D5E540C5 /* PBXTargetDependency */,
+			);
+			name = DesktopOverlayTests;
+			packageProductDependencies = (
+			);
+			productName = DesktopOverlayTests;
+			productReference = CB119DFEA35AA40D2D3185A1 /* DesktopOverlayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7DD8BD864C19A6B6F59D3B52 /* DesktopOverlay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB00889F5602A7D3C874ABCD /* Build configuration list for PBXNativeTarget "DesktopOverlay" */;
+			buildPhases = (
+				1101FA1414AC62AA89706307 /* Sources */,
+				838FAAD8808EC08F8C23EBD6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DesktopOverlay;
+			packageProductDependencies = (
+			);
+			productName = DesktopOverlay;
+			productReference = E30110D8995A6B2746DD9F57 /* DesktopOverlay.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E7406EBED8BAE4AE59BFA93 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5EBA689444098142980FF2B9 = {
+						ProvisioningStyle = Automatic;
+					};
+					7DD8BD864C19A6B6F59D3B52 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D540909DCA92A90CD4586BAB /* Build configuration list for PBXProject "DesktopOverlay" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 234FF4914D478FD142C6C2E6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = ADA4192BCBA740F649FD8E23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7DD8BD864C19A6B6F59D3B52 /* DesktopOverlay */,
+				5EBA689444098142980FF2B9 /* DesktopOverlayTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		838FAAD8808EC08F8C23EBD6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A6F48198C799E377F78FE7B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1101FA1414AC62AA89706307 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA7D4E90AE6A441240EF05CB /* AppDelegate.swift in Sources */,
+				0E3D388BFC1A897DA1370C28 /* BatteryMetric.swift in Sources */,
+				C80BDB250F00750ACE1901BE /* CPUCalculator.swift in Sources */,
+				9A34550CC56C06B30AE8E045 /* CPUMetric.swift in Sources */,
+				6956CCCD0B96101015AB9F1B /* DecayingMax.swift in Sources */,
+				845B186F14E4DFBF71A8E71E /* DesktopOverlayApp.swift in Sources */,
+				83417B52ADDA206D6E1F35D6 /* DiskMetric.swift in Sources */,
+				2029C006F053AF54A70D637E /* LaunchAtLoginService.swift in Sources */,
+				E8E762533493A76F19973567 /* MemoryCalculator.swift in Sources */,
+				B1A19D8B712115039CB69871 /* MemoryMetric.swift in Sources */,
+				7A27A874677D9DE394E9CBF4 /* MenuBarController.swift in Sources */,
+				92D90B0AD7EE56B7E0BDF572 /* MetricFormatter.swift in Sources */,
+				4C898161D38DF4700AC03E47 /* MetricValue.swift in Sources */,
+				F90B20EAD35C0367843FD6E4 /* MetricsCoordinator.swift in Sources */,
+				2CA531DC361424F7CBC8C00C /* NetworkMetric.swift in Sources */,
+				94A7F385E7F4E5FB3148601D /* OverlayGeometry.swift in Sources */,
+				FC1E2D93D94934BC6C5D6810 /* OverlayPanel.swift in Sources */,
+				EF100CBB7E13DD7DC7A6AE8E /* OverlayRowView.swift in Sources */,
+				2A32B006495138B0A51B4834 /* OverlayView.swift in Sources */,
+				0818024C20666C806B9E6BC8 /* OverlayWindowController.swift in Sources */,
+				2B7283BA937C43DF2B9AB559 /* RateCalculator.swift in Sources */,
+				E35E58515161D57AC6018504 /* RingBuffer.swift in Sources */,
+				CC672AD4AAE97A79B57C98F5 /* SettingsStore.swift in Sources */,
+				20E14DBE51ACAA17A89B0813 /* SettingsView.swift in Sources */,
+				0328801B599E34BBAF0C625F /* SparklineView.swift in Sources */,
+				DC11921C713A40C7D7B44156 /* SystemMetric.swift in Sources */,
+				6799962E36DDA889CF74E8C1 /* SystemMetricsService.swift in Sources */,
+				B81CE266F565BAD52948C136 /* ThermalMetric.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB3C6ED2BF0027ECD5FB060 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D143E94542D35895C9371D2 /* CPUCalculatorTests.swift in Sources */,
+				B8BB2E99F2B518CA5F79BD53 /* MemoryCalculatorTests.swift in Sources */,
+				B97629F756D3DD20119829BD /* OverlayGeometryTests.swift in Sources */,
+				CEC60CF9AE805FBDBC172E56 /* RateCalculatorTests.swift in Sources */,
+				3B8153BB6BD79B1FCF216D4F /* RingBufferTests.swift in Sources */,
+				540080A8E1D681B72E34C6B8 /* SettingsStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7DD79FC914D2ADC7D5E540C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DD8BD864C19A6B6F59D3B52 /* DesktopOverlay */;
+			targetProxy = C8BD1657CF665D8F68A82132 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1F259A2AC92105F90915934B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alhanashi.DesktopOverlayTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesktopOverlay.app/Contents/MacOS/DesktopOverlay";
+			};
+			name = Debug;
+		};
+		2DBC6FEA2311F566F34B1460 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DesktopOverlay/DesktopOverlay.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DesktopOverlay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alhanashi.DesktopOverlay;
+				PRODUCT_NAME = DesktopOverlay;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3536582019FF28EAF37C1864 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		49EB25129C73251841A9B146 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DesktopOverlay/DesktopOverlay.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DesktopOverlay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alhanashi.DesktopOverlay;
+				PRODUCT_NAME = DesktopOverlay;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		847A3F97E2E226A377FB3D4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alhanashi.DesktopOverlayTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DesktopOverlay.app/Contents/MacOS/DesktopOverlay";
+			};
+			name = Release;
+		};
+		9D110CAB2020A1FBB6CC09D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A4055914731777F3378C4B3 /* Build configuration list for PBXNativeTarget "DesktopOverlayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F259A2AC92105F90915934B /* Debug */,
+				847A3F97E2E226A377FB3D4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D540909DCA92A90CD4586BAB /* Build configuration list for PBXProject "DesktopOverlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D110CAB2020A1FBB6CC09D8 /* Debug */,
+				3536582019FF28EAF37C1864 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EB00889F5602A7D3C874ABCD /* Build configuration list for PBXNativeTarget "DesktopOverlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49EB25129C73251841A9B146 /* Debug */,
+				2DBC6FEA2311F566F34B1460 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E7406EBED8BAE4AE59BFA93 /* Project object */;
+}
