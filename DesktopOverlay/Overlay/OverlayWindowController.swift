@@ -48,10 +48,10 @@ final class OverlayWindowController {
         }
         hosting.addSubview(handle)
 
-        applyLevel()
-        applyClickThrough()
-        applyOpacity()
-        applyAppearance()
+        applyLevel(settings.alwaysOnTop)
+        applyClickThrough(settings.clickThrough)
+        applyOpacity(settings.opacity)
+        applyAppearance(settings.appearance)
         observeSettings()
         observeWindowAndScreen()
     }
@@ -86,34 +86,38 @@ final class OverlayWindowController {
     // MARK: - Live settings
 
     private func observeSettings() {
+        // NOTE: `@Published` fires its publisher in `willSet`, so the closure
+        // must use the *emitted* value — reading `settings.x` here would return
+        // the previous value and make every apply lag one change behind (which
+        // left click-through stuck on after an on→off toggle).
         settings.$alwaysOnTop
-            .sink { [weak self] _ in self?.applyLevel() }.store(in: &cancellables)
+            .sink { [weak self] value in self?.applyLevel(value) }.store(in: &cancellables)
         settings.$clickThrough
-            .sink { [weak self] _ in self?.applyClickThrough() }.store(in: &cancellables)
+            .sink { [weak self] value in self?.applyClickThrough(value) }.store(in: &cancellables)
         settings.$opacity
-            .sink { [weak self] _ in self?.applyOpacity() }.store(in: &cancellables)
+            .sink { [weak self] value in self?.applyOpacity(value) }.store(in: &cancellables)
         settings.$appearance
-            .sink { [weak self] _ in self?.applyAppearance() }.store(in: &cancellables)
+            .sink { [weak self] value in self?.applyAppearance(value) }.store(in: &cancellables)
     }
 
-    private func applyLevel() {
+    private func applyLevel(_ alwaysOnTop: Bool) {
         // `isFloatingPanel` must also track the setting: while it is true the
         // panel stays above other windows regardless of `level`, which made the
         // toggle look like it did nothing when switched off.
-        panel.isFloatingPanel = settings.alwaysOnTop
-        panel.level = settings.alwaysOnTop ? .floating : .normal
+        panel.isFloatingPanel = alwaysOnTop
+        panel.level = alwaysOnTop ? .floating : .normal
     }
 
-    private func applyClickThrough() {
-        panel.ignoresMouseEvents = settings.clickThrough
+    private func applyClickThrough(_ enabled: Bool) {
+        panel.ignoresMouseEvents = enabled
     }
 
-    private func applyOpacity() {
-        panel.alphaValue = CGFloat(settings.opacity.clamped(to: 0.2...1.0))
+    private func applyOpacity(_ opacity: Double) {
+        panel.alphaValue = CGFloat(opacity.clamped(to: 0.2...1.0))
     }
 
-    private func applyAppearance() {
-        panel.appearance = settings.appearance.nsAppearance
+    private func applyAppearance(_ mode: AppearanceMode) {
+        panel.appearance = mode.nsAppearance
     }
 
     // MARK: - Resize (from the SwiftUI grip)

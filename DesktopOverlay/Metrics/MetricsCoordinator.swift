@@ -123,9 +123,13 @@ final class MetricsCoordinator: ObservableObject {
 
     // MARK: - Scheduling (main actor)
 
-    /// Nominal interval from Settings, stretched under thermal pressure (spec §21).
+    /// Nominal interval, stretched under thermal pressure (spec §21). Reads the
+    /// thread-safe mirror rather than `settings.updateInterval`: the mirror is
+    /// updated with the fresh value inside the `$updateInterval` sink, whereas
+    /// `settings.updateInterval` is still the previous value at that point
+    /// (`@Published` fires in `willSet`).
     private var effectiveInterval: TimeInterval {
-        let base = settings.updateInterval.seconds
+        let base = intervalSecondsSnapshot
         switch ProcessInfo.processInfo.thermalState {
         case .serious:  return base * 2
         case .critical: return base * 4
