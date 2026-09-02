@@ -31,7 +31,7 @@ struct OverlayRowView: View {
                     .font(.system(size: fontSize.labelPointSize))
                     .foregroundStyle(.tertiary)
                     .lineLimit(1)
-                    .layoutPriority(-1)
+                    .fixedSize()
             }
 
             Spacer(minLength: 2)
