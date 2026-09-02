@@ -86,6 +86,27 @@ enum MetricFormatter {
         }
     }
 
+    /// Extra figures shown after the headline value in Normal mode, so the raw
+    /// numbers behind the percentage are visible (e.g. "13.6 / 32 GB" for RAM,
+    /// the user/system split for CPU).
+    static func secondaryText(for id: MetricID, reading: MetricReading?) -> String? {
+        guard let reading else { return nil }
+        switch id {
+        case .memory:
+            guard case .bytes(let used)? = reading.components["used"],
+                  case .bytes(let available)? = reading.components["available"] else { return nil }
+            let totalGB = (used + available) / 1_073_741_824
+            let usedGB = used / 1_073_741_824
+            return String(format: "%.1f / %.0f GB", usedGB, totalGB)
+        case .cpu:
+            guard case .percent(let user)? = reading.components["user"],
+                  case .percent(let system)? = reading.components["system"] else { return nil }
+            return String(format: "%.0f%% usr · %.0f%% sys", user, system)
+        default:
+            return nil
+        }
+    }
+
     /// A one-word plain-language status shown next to the value (never colour
     /// alone — spec §26), so "is this normal?" is answerable at a glance.
     static func stateHint(for id: MetricID, reading: MetricReading?) -> String? {
