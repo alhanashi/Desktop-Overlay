@@ -79,6 +79,18 @@ final class SMCService {
         return best
     }
 
+    /// Fan 0's minimum / maximum RPM (`F0Mn` / `F0Mx`), for a "is this normal?"
+    /// reference range.
+    func fanRange() -> (min: Double, max: Double)? {
+        lock.lock(); defer { lock.unlock() }
+        ensureOpen()
+        guard opened,
+              let low = readValueLocked(key: Self.fourCharCode("F0Mn")),
+              let high = readValueLocked(key: Self.fourCharCode("F0Mx")),
+              high > low, low >= 0, high < 12_000 else { return nil }
+        return (low, high)
+    }
+
     // MARK: - Connection
 
     private func ensureOpen() {

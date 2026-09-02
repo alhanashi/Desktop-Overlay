@@ -26,6 +26,14 @@ struct OverlayRowView: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
 
+            if !compact, let hint = MetricFormatter.stateHint(for: id, reading: reading) {
+                Text(hint)
+                    .font(.system(size: fontSize.labelPointSize))
+                    .foregroundStyle(.tertiary)
+                    .lineLimit(1)
+                    .layoutPriority(-1)
+            }
+
             Spacer(minLength: 2)
 
             if !compact, history.count >= 2 {
@@ -34,6 +42,7 @@ struct OverlayRowView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .help(MetricFormatter.tooltip(for: id, reading: reading))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(MetricFormatter.accessibilityText(for: id, reading: reading))
     }

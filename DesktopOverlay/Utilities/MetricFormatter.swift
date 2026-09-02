@@ -62,6 +62,75 @@ enum MetricFormatter {
     /// Spoken description for VoiceOver (spec §26).
     static func accessibilityText(for id: MetricID, reading: MetricReading?) -> String {
         let value = primaryText(for: id, reading: reading)
-        return "\(id.displayName): \(value)"
+        let hint = stateHint(for: id, reading: reading).map { ", \($0)" } ?? ""
+        return "\(id.displayName): \(value)\(hint)"
+    }
+
+    private static func component(_ reading: MetricReading, _ key: String) -> String {
+        reading.components[key].map(string(for:)) ?? unavailable
+    }
+
+    /// A one-word plain-language status shown next to the value (never colour
+    /// alone — spec §26), so "is this normal?" is answerable at a glance.
+    static func stateHint(for id: MetricID, reading: MetricReading?) -> String? {
+        guard let reading else { return nil }
+        switch id {
+        case .fan:
+            guard case .rpm(let rpm) = reading.primary else { return nil }
+            if case .rpm(let low)? = reading.components["min"],
+               case .rpm(let high)? = reading.components["max"], high > low {
+                let fraction = (rpm - low) / (high - low)
+                if fraction < 0.15 { return "idle" }
+                if fraction < 0.55 { return "moderate" }
+                return "high"
+            }
+            return rpm < 2500 ? "idle" : (rpm < 4000 ? "moderate" : "high")
+        case .cpuTemperature:
+            guard case .celsius(let c) = reading.primary else { return nil }
+            if c < 65 { return "cool" }
+            if c < 85 { return "warm" }
+            return "hot"
+        case .memory:
+            if case .text(let pressure)? = reading.components["pressure"], pressure != "Normal" {
+                return pressure.lowercased()
+            }
+            return nil
+        default:
+            return nil
+        }
+    }
+
+    /// Full explanation shown as a hover tooltip on the row (spec §25 — usable
+    /// without reading docs).
+    static func tooltip(for id: MetricID, reading: MetricReading?) -> String {
+        guard let reading else { return "\(id.displayName) — waiting for the first sample." }
+        switch id {
+        case .cpu:
+            return "Total processor usage. User \(component(reading, "user")), "
+                 + "system \(component(reading, "system")), idle \(component(reading, "idle"))."
+        case .memory:
+            return "Memory in use \(component(reading, "used")), available \(component(reading, "available")). "
+                 + "Pressure: \(component(reading, "pressure"))."
+        case .disk:
+            return "Disk throughput — read \(component(reading, "read")), write \(component(reading, "write"))."
+        case .network:
+            return "Network throughput — download \(component(reading, "down")), upload \(component(reading, "up"))."
+        case .temperature:
+            return "System thermal state: Nominal (cool) → Fair → Serious → Critical (the system is throttling)."
+        case .cpuTemperature:
+            return "CPU temperature from the SMC sensor. Idle is typically 40–60 °C; "
+                 + "sustained 90 °C+ means a heavy thermal load."
+        case .fan:
+            if case .rpm(let low)? = reading.components["min"],
+               case .rpm(let high)? = reading.components["max"] {
+                return "Fan speed. Normal range on this Mac is "
+                     + "\(Int(low))–\(Int(high)) rpm — low when idle, near the top under load."
+            }
+            return "Fan speed in RPM — low when the Mac is cool, higher under load."
+        case .battery:
+            return "Battery charge. Charging: \(component(reading, "charging"))."
+        case .gpu:
+            return "GPU usage is not available through public macOS APIs."
+        }
     }
 }
