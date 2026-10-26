@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v1.1
 
 - **Liquid Glass** backdrop on macOS 26+; macOS 15–25 keep the translucent
   material.
