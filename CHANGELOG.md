@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.0 — unreleased
+## v1.0
 
 First public release.
 
