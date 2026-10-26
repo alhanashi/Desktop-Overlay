@@ -64,6 +64,10 @@ private struct AppearanceSettingsTab: View {
             Picker("Overlay size", selection: $settings.sizeMode) {
                 ForEach(OverlaySizeMode.allCases) { Text($0.label).tag($0) }
             }
+            Picker("Display style", selection: $settings.displayStyle) {
+                ForEach(DisplayStyle.allCases) { Text($0.label).tag($0) }
+            }
+            .pickerStyle(.segmented)
         }
         .formStyle(.grouped)
     }
@@ -184,6 +188,7 @@ private struct GuideSettingsTab: View {
             Section("Units & symbols") {
                 entry("↓ / ↑", "Read / write for Disk; download / upload for Net.")
                 entry("Rates", "Scale automatically: B/s → KB/s → MB/s → GB/s.")
+                entry("Gauges", "In the Gauges display style the dial arc shows the current value. Disk and Net arcs are relative to the recent peak, not an absolute scale.")
                 entry("—", "The value could not be read right now.")
             }
 

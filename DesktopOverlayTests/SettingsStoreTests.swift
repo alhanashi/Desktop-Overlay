@@ -28,6 +28,7 @@ final class SettingsStoreTests: XCTestCase {
         XCTAssertFalse(settings.clickThrough)
         XCTAssertEqual(settings.enabledMetrics, [.cpu, .memory, .disk, .network])
         XCTAssertEqual(settings.appearance, .system)
+        XCTAssertEqual(settings.displayStyle, .rows)
     }
 
     func testValuesRoundTripAcrossInstances() {
@@ -41,6 +42,7 @@ final class SettingsStoreTests: XCTestCase {
             settings.appearance = .dark
             settings.fontSize = .large
             settings.sizeMode = .compact
+            settings.displayStyle = .gauges
             settings.setMetric(.temperature, enabled: true)
             settings.setMetric(.disk, enabled: false)
         }
@@ -54,6 +56,7 @@ final class SettingsStoreTests: XCTestCase {
         XCTAssertEqual(reloaded.appearance, .dark)
         XCTAssertEqual(reloaded.fontSize, .large)
         XCTAssertEqual(reloaded.sizeMode, .compact)
+        XCTAssertEqual(reloaded.displayStyle, .gauges)
         XCTAssertTrue(reloaded.enabledMetrics.contains(.temperature))
         XCTAssertFalse(reloaded.enabledMetrics.contains(.disk))
     }

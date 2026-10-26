@@ -17,7 +17,7 @@ Thanks for your interest in Desktop Overlay.
 git switch -c my-change
 # ... edit ...
 xcodebuild -project DesktopOverlay.xcodeproj -scheme DesktopOverlay \
-  -destination 'platform=macOS' test        # 40 tests must stay green
+  -destination 'platform=macOS' test        # 46 tests must stay green
 git push -u origin my-change
 ```
 

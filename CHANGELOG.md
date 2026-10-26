@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased
+
+- **Liquid Glass** backdrop on macOS 26+; macOS 15–25 keep the translucent
+  material.
+- New **Display style** setting (Settings ▸ Appearance): *Rows* (the original
+  small history line) or *Gauges* (circular speedometer dials). Gauge arcs for
+  Disk and Net are relative to the recent peak.
+- Settings ▸ Guide explains the gauge dials.
+- 46 unit tests.
+
 ## v1.0
 
 First public release.

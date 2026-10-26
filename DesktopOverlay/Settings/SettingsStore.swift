@@ -37,6 +37,14 @@ enum OverlaySizeMode: String, CaseIterable, Identifiable, Sendable {
     var label: String { self == .compact ? "Compact" : "Normal" }
 }
 
+/// How each metric row draws its trailing graphic: a small history line
+/// (`rows`, the original look) or a circular speedometer dial (`gauges`).
+enum DisplayStyle: String, CaseIterable, Identifiable, Sendable {
+    case rows, gauges
+    var id: String { rawValue }
+    var label: String { self == .rows ? "Rows" : "Gauges" }
+}
+
 enum FontSizeMode: String, CaseIterable, Identifiable, Sendable {
     case small, medium, large
     var id: String { rawValue }
@@ -65,6 +73,7 @@ final class SettingsStore: ObservableObject {
         static let cornerRadius = "appearance.cornerRadius"
         static let fontSize = "appearance.fontSize"
         static let sizeMode = "appearance.sizeMode"
+        static let displayStyle = "appearance.displayStyle"
         static let appearance = "appearance.mode"
         static let enabledMetrics = "metrics.enabled"
         static let updateInterval = "update.interval"
@@ -80,6 +89,7 @@ final class SettingsStore: ObservableObject {
     @Published var cornerRadius: Double { didSet { defaults.set(cornerRadius, forKey: Key.cornerRadius) } }
     @Published var fontSize: FontSizeMode { didSet { defaults.set(fontSize.rawValue, forKey: Key.fontSize) } }
     @Published var sizeMode: OverlaySizeMode { didSet { defaults.set(sizeMode.rawValue, forKey: Key.sizeMode) } }
+    @Published var displayStyle: DisplayStyle { didSet { defaults.set(displayStyle.rawValue, forKey: Key.displayStyle) } }
     @Published var appearance: AppearanceMode { didSet { defaults.set(appearance.rawValue, forKey: Key.appearance) } }
     @Published var enabledMetrics: Set<MetricID> {
         didSet { defaults.set(enabledMetrics.map(\.rawValue).sorted(), forKey: Key.enabledMetrics) }
@@ -98,6 +108,7 @@ final class SettingsStore: ObservableObject {
             Key.cornerRadius: 12.0,
             Key.fontSize: FontSizeMode.medium.rawValue,
             Key.sizeMode: OverlaySizeMode.normal.rawValue,
+            Key.displayStyle: DisplayStyle.rows.rawValue,
             Key.appearance: AppearanceMode.system.rawValue,
             Key.enabledMetrics: [MetricID.cpu, .memory, .disk, .network].map(\.rawValue),
             Key.updateInterval: UpdateInterval.one.rawValue,
@@ -112,6 +123,7 @@ final class SettingsStore: ObservableObject {
         cornerRadius = defaults.double(forKey: Key.cornerRadius)
         fontSize = FontSizeMode(rawValue: defaults.string(forKey: Key.fontSize) ?? "") ?? .medium
         sizeMode = OverlaySizeMode(rawValue: defaults.string(forKey: Key.sizeMode) ?? "") ?? .normal
+        displayStyle = DisplayStyle(rawValue: defaults.string(forKey: Key.displayStyle) ?? "") ?? .rows
         appearance = AppearanceMode(rawValue: defaults.string(forKey: Key.appearance) ?? "") ?? .system
         enabledMetrics = Set((defaults.stringArray(forKey: Key.enabledMetrics) ?? [])
             .compactMap(MetricID.init(rawValue:)))

@@ -32,7 +32,7 @@ A lightweight, open-source alternative to iStat Menus / MenuMeters / Stats.
 
 | | |
 |---|---|
-| macOS | **15.0** or later (developed and tested on macOS 26, Intel) |
+| macOS | **15.0** or later (developed and tested on macOS 26, Intel). macOS 26+ gets the system's Liquid Glass look; macOS 15–25 use a translucent material. |
 | Xcode | 16 or later (developed with Xcode 26.5) |
 | Dependencies | None. Apple system frameworks only. |
 | Signing | None for personal use — the app runs ad-hoc signed. App Sandbox is **off** (see [Known limitations](#known-limitations)). |
@@ -107,6 +107,7 @@ On first launch:
 | CPU °C / fan RPM | Settings ▸ Metrics ▸ **Sensors (SMC)** — off by default, Intel Macs only |
 | Refresh rate | Menu bar ▸ **Update Interval** (1 / 2 / 5 s) |
 | Appearance | Menu bar ▸ **Appearance** (System / Light / Dark) |
+| Display style | Settings ▸ Appearance ▸ **Display style** — *Rows* (small history line) or *Gauges* (circular speedometer dials) |
 | Start with macOS | Menu bar ▸ **Launch at Login**, or Settings ▸ General |
 | Recenter if lost | Menu bar ▸ **Reset Position** |
 | Learn what a value or word means | Settings ▸ **Guide** |
@@ -188,7 +189,7 @@ DesktopOverlay/
 
 **Testing.** The pure helpers (`CPUCalculator`, `MemoryCalculator`,
 `RateCalculator`, `OverlayGeometry`, `RingBuffer`, the SMC value decoders) have no
-I/O and are covered by **40 unit tests** in `DesktopOverlayTests/`:
+I/O and are covered by **46 unit tests** in `DesktopOverlayTests/`:
 
 ```bash
 xcodebuild -project DesktopOverlay.xcodeproj -scheme DesktopOverlay \

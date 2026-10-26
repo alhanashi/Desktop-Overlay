@@ -7,6 +7,7 @@ struct OverlayRowView: View {
     let history: [Double]
     let fontSize: FontSizeMode
     let compact: Bool
+    var style: DisplayStyle = .rows
 
     private var isUnavailable: Bool {
         reading == nil || reading?.primary == .unavailable
@@ -45,9 +46,20 @@ struct OverlayRowView: View {
 
             Spacer(minLength: 2)
 
-            if !compact, history.count >= 2 {
-                SparklineView(samples: history)
-                    .frame(width: 44, height: fontSize.valuePointSize + 2)
+            if !compact {
+                switch style {
+                case .rows:
+                    if history.count >= 2 {
+                        SparklineView(samples: history)
+                            .frame(width: 44, height: fontSize.valuePointSize + 2)
+                    }
+                case .gauges:
+                    if let value = reading?.graphSample {
+                        GaugeView(value: value)
+                            .frame(width: fontSize.valuePointSize + 8,
+                                   height: fontSize.valuePointSize + 8)
+                    }
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)

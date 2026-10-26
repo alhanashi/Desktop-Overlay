@@ -38,19 +38,15 @@ struct OverlayContentView: View {
                         reading: metrics.readings[id],
                         history: metrics.history[id] ?? [],
                         fontSize: settings.fontSize,
-                        compact: settings.sizeMode == .compact
+                        compact: settings.sizeMode == .compact,
+                        style: settings.displayStyle
                     )
                 }
             }
         }
         .padding(padding)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: settings.cornerRadius, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: settings.cornerRadius, style: .continuous)
-                .strokeBorder(Color.primary.opacity(0.08), lineWidth: 1)
-        )
+        .modifier(OverlayCardBackground(cornerRadius: settings.cornerRadius))
         .contentShape(Rectangle())
         .accessibilityElement(children: .contain)
         .accessibilityLabel("System metrics overlay")

@@ -10,6 +10,7 @@
 		0328801B599E34BBAF0C625F /* SparklineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7227C06D46B316F827CE0BD8 /* SparklineView.swift */; };
 		0391B9A7DA3E3C95F41472AD /* SMCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF653EBC8A0466B4D72AC31 /* SMCService.swift */; };
 		0818024C20666C806B9E6BC8 /* OverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */; };
+		09B4E4F9A67E58803CC1B9BB /* GaugeGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C516B382D47913E1D0B8AE /* GaugeGeometry.swift */; };
 		0E3D388BFC1A897DA1370C28 /* BatteryMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BDD001C574ADB8856AE981 /* BatteryMetric.swift */; };
 		2029C006F053AF54A70D637E /* LaunchAtLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661EFF1F1A3AE4513D11E3E /* LaunchAtLoginService.swift */; };
 		20E14DBE51ACAA17A89B0813 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7978B6928FF79645F8FD48B0 /* SettingsView.swift */; };
@@ -31,9 +32,11 @@
 		83417B52ADDA206D6E1F35D6 /* DiskMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595DACA5A5E8898146E0C80 /* DiskMetric.swift */; };
 		845B186F14E4DFBF71A8E71E /* DesktopOverlayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B32A1A6E55F5FBD006ED682 /* DesktopOverlayApp.swift */; };
 		92D90B0AD7EE56B7E0BDF572 /* MetricFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */; };
+		937F3E7B0F02318B448D4182 /* GaugeGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C619B9131FBCAA027DCC53BE /* GaugeGeometryTests.swift */; };
 		94A7F385E7F4E5FB3148601D /* OverlayGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A28D04D4171616B05F87F /* OverlayGeometry.swift */; };
 		9A34550CC56C06B30AE8E045 /* CPUMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0C7B588FF26E8E05E1A3E /* CPUMetric.swift */; };
 		9B414C7087A6D312D07F1192 /* SMCDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3466B48122AFE59C662C5A1 /* SMCDecodeTests.swift */; };
+		AA4EEF18A78ACA6D73882789 /* OverlayCardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84F09F87799062295B1410 /* OverlayCardBackground.swift */; };
 		AA7D4E90AE6A441240EF05CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF437934DC13777062EF59 /* AppDelegate.swift */; };
 		B1A19D8B712115039CB69871 /* MemoryMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */; };
 		B81CE266F565BAD52948C136 /* ThermalMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774B1C07A30B746660AAC8FB /* ThermalMetric.swift */; };
@@ -48,6 +51,7 @@
 		E8E762533493A76F19973567 /* MemoryCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614883D566623155AF486AA /* MemoryCalculator.swift */; };
 		EF100CBB7E13DD7DC7A6AE8E /* OverlayRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */; };
 		F90B20EAD35C0367843FD6E4 /* MetricsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */; };
+		F9663672E04EBBEB52821403 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8021424ED058243D9F519FF5 /* GaugeView.swift */; };
 		FC1E2D93D94934BC6C5D6810 /* OverlayPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282686340D1ABB1B40EE894 /* OverlayPanel.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +69,7 @@
 		01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBufferTests.swift; sourceTree = "<group>"; };
 		0B9D76AC324BA84E9CEC7789 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		12D5088012DA4D9A7817421C /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		19C516B382D47913E1D0B8AE /* GaugeGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeGeometry.swift; sourceTree = "<group>"; };
 		19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryMetric.swift; sourceTree = "<group>"; };
 		1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayWindowController.swift; sourceTree = "<group>"; };
 		22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsCoordinator.swift; sourceTree = "<group>"; };
@@ -83,11 +88,13 @@
 		7B32A1A6E55F5FBD006ED682 /* DesktopOverlayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesktopOverlayApp.swift; sourceTree = "<group>"; };
 		7FF653EBC8A0466B4D72AC31 /* SMCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCService.swift; sourceTree = "<group>"; };
 		800A28D04D4171616B05F87F /* OverlayGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayGeometry.swift; sourceTree = "<group>"; };
+		8021424ED058243D9F519FF5 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		84ACC0F585D4AAF4D724CAB1 /* RingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
 		86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricFormatter.swift; sourceTree = "<group>"; };
 		8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayGeometryTests.swift; sourceTree = "<group>"; };
 		8D95B1CD8311E6DA2313B768 /* DesktopOverlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DesktopOverlay.entitlements; sourceTree = "<group>"; };
 		9625EFAECC35A6466FB44472 /* DraggableHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableHostingView.swift; sourceTree = "<group>"; };
+		9B84F09F87799062295B1410 /* OverlayCardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayCardBackground.swift; sourceTree = "<group>"; };
 		A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
 		A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayRowView.swift; sourceTree = "<group>"; };
 		ABFE6D944264355AFB4928D7 /* NetworkMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMetric.swift; sourceTree = "<group>"; };
@@ -96,6 +103,7 @@
 		C3466B48122AFE59C662C5A1 /* SMCDecodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCDecodeTests.swift; sourceTree = "<group>"; };
 		C4DE6C11E0F1E35367F3855E /* FanMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanMetric.swift; sourceTree = "<group>"; };
 		C595DACA5A5E8898146E0C80 /* DiskMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskMetric.swift; sourceTree = "<group>"; };
+		C619B9131FBCAA027DCC53BE /* GaugeGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeGeometryTests.swift; sourceTree = "<group>"; };
 		CB119DFEA35AA40D2D3185A1 /* DesktopOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesktopOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D809553142639F9A55564D79 /* SMCTemperatureMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCTemperatureMetric.swift; sourceTree = "<group>"; };
 		E30110D8995A6B2746DD9F57 /* DesktopOverlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopOverlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				9625EFAECC35A6466FB44472 /* DraggableHostingView.swift */,
+				8021424ED058243D9F519FF5 /* GaugeView.swift */,
+				9B84F09F87799062295B1410 /* OverlayCardBackground.swift */,
 				F282686340D1ABB1B40EE894 /* OverlayPanel.swift */,
 				A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */,
 				AF96F975DF994624291FAB3B /* OverlayView.swift */,
@@ -220,6 +230,7 @@
 			children = (
 				637D41A9797264A258542B3A /* CPUCalculator.swift */,
 				F886AE9A76D0304D3AEB6E20 /* DecayingMax.swift */,
+				19C516B382D47913E1D0B8AE /* GaugeGeometry.swift */,
 				6614883D566623155AF486AA /* MemoryCalculator.swift */,
 				86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */,
 				800A28D04D4171616B05F87F /* OverlayGeometry.swift */,
@@ -241,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */,
+				C619B9131FBCAA027DCC53BE /* GaugeGeometryTests.swift */,
 				EB32E875055086178D60C9DB /* MemoryCalculatorTests.swift */,
 				8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */,
 				79337E47F5319114D336C71A /* RateCalculatorTests.swift */,
@@ -352,6 +364,8 @@
 				83417B52ADDA206D6E1F35D6 /* DiskMetric.swift in Sources */,
 				4E000B0F6FC6291C32F9733A /* DraggableHostingView.swift in Sources */,
 				4C38F923D8B10C5B37817B1B /* FanMetric.swift in Sources */,
+				09B4E4F9A67E58803CC1B9BB /* GaugeGeometry.swift in Sources */,
+				F9663672E04EBBEB52821403 /* GaugeView.swift in Sources */,
 				2029C006F053AF54A70D637E /* LaunchAtLoginService.swift in Sources */,
 				E8E762533493A76F19973567 /* MemoryCalculator.swift in Sources */,
 				B1A19D8B712115039CB69871 /* MemoryMetric.swift in Sources */,
@@ -360,6 +374,7 @@
 				4C898161D38DF4700AC03E47 /* MetricValue.swift in Sources */,
 				F90B20EAD35C0367843FD6E4 /* MetricsCoordinator.swift in Sources */,
 				2CA531DC361424F7CBC8C00C /* NetworkMetric.swift in Sources */,
+				AA4EEF18A78ACA6D73882789 /* OverlayCardBackground.swift in Sources */,
 				94A7F385E7F4E5FB3148601D /* OverlayGeometry.swift in Sources */,
 				FC1E2D93D94934BC6C5D6810 /* OverlayPanel.swift in Sources */,
 				EF100CBB7E13DD7DC7A6AE8E /* OverlayRowView.swift in Sources */,
@@ -385,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D143E94542D35895C9371D2 /* CPUCalculatorTests.swift in Sources */,
+				937F3E7B0F02318B448D4182 /* GaugeGeometryTests.swift in Sources */,
 				B8BB2E99F2B518CA5F79BD53 /* MemoryCalculatorTests.swift in Sources */,
 				B97629F756D3DD20119829BD /* OverlayGeometryTests.swift in Sources */,
 				CEC60CF9AE805FBDBC172E56 /* RateCalculatorTests.swift in Sources */,
