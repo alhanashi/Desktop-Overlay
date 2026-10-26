@@ -5,7 +5,11 @@ import AppKit
 /// title bar or chrome, and it can sit above normal windows on every Space.
 final class OverlayPanel: NSPanel {
 
-    init(contentRect: NSRect) {
+    /// `alwaysOnTop` is fixed for the life of the window: Space / full-screen
+    /// membership is decided when a window is created (measured — changing
+    /// `collectionBehavior` later has no effect), so the controller builds a new
+    /// panel whenever the setting changes.
+    init(contentRect: NSRect, alwaysOnTop: Bool) {
         super.init(
             contentRect: contentRect,
             styleMask: [.borderless, .nonactivatingPanel, .resizable],
@@ -13,7 +17,10 @@ final class OverlayPanel: NSPanel {
             defer: false
         )
 
-        isFloatingPanel = true
+        // `isFloatingPanel` tracks the setting too: while it is true the panel
+        // stays above other windows regardless of `level`.
+        isFloatingPanel = alwaysOnTop
+        level = alwaysOnTop ? .floating : .normal
         isMovableByWindowBackground = true
         hidesOnDeactivate = false
         becomesKeyOnlyIfNeeded = true
@@ -25,12 +32,23 @@ final class OverlayPanel: NSPanel {
         backgroundColor = .clear
         hasShadow = true
 
-        // Show on every Space and above full-screen apps, without pulling the
-        // Dock or menu bar into view (spec §15).
-        collectionBehavior = [.canJoinAllSpaces, .stationary, .fullScreenAuxiliary, .ignoresCycle]
+        collectionBehavior = Self.collectionBehavior(alwaysOnTop: alwaysOnTop)
 
         minSize = OverlayGeometry.minSize
         maxSize = OverlayGeometry.maxSize
+    }
+
+    /// Which Spaces the panel appears in. Both modes follow you across normal
+    /// Spaces. With "Always on Top" on, `fullScreenAuxiliary` also lets it sit
+    /// over another app's full-screen Space without pulling the Dock or menu bar
+    /// into view. With it off, `fullScreenNone` is used instead: measured on
+    /// macOS 26, `canJoinAllSpaces` alone (with or without `stationary`) still
+    /// shows the window over full-screen apps, while `canJoinAllSpaces` +
+    /// `fullScreenNone` hides it there like an ordinary window.
+    static func collectionBehavior(alwaysOnTop: Bool) -> NSWindow.CollectionBehavior {
+        alwaysOnTop
+            ? [.canJoinAllSpaces, .stationary, .fullScreenAuxiliary, .ignoresCycle]
+            : [.canJoinAllSpaces, .fullScreenNone, .ignoresCycle]
     }
 
     // Borderless panels don't become key by default; allow it so the SwiftUI

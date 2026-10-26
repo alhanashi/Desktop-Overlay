@@ -8,13 +8,16 @@ import SwiftUI
 @MainActor
 final class OverlayWindowController {
 
-    let panel: OverlayPanel
+    /// Set exactly once in `init` (and replaced by `rebuildPanel`); never nil after.
+    private(set) var panel: OverlayPanel!
 
     private let settings: SettingsStore
     private let metrics: MetricsCoordinator
     private var cancellables = Set<AnyCancellable>()
+    private var panelCancellables = Set<AnyCancellable>()
     private var persistWorkItem: DispatchWorkItem?
     private var resizeStartFrame: NSRect?
+    private var panelIsAlwaysOnTop: Bool
 
     private(set) var isVisible = false
 
@@ -22,8 +25,21 @@ final class OverlayWindowController {
         self.settings = settings
         self.metrics = metrics
 
-        let initialFrame = Self.resolveInitialFrame(settings: settings)
-        panel = OverlayPanel(contentRect: initialFrame)
+        panelIsAlwaysOnTop = settings.alwaysOnTop
+        panel = makePanel(frame: Self.resolveInitialFrame(settings: settings),
+                          alwaysOnTop: settings.alwaysOnTop)
+
+        observePanel()
+        observeSettings()
+        observeScreens()
+    }
+
+    // MARK: - Building the panel
+
+    /// Builds a fully configured panel: SwiftUI content, resize grip, and the
+    /// current click-through / opacity / appearance settings.
+    private func makePanel(frame: NSRect, alwaysOnTop: Bool) -> OverlayPanel {
+        let panel = OverlayPanel(contentRect: frame, alwaysOnTop: alwaysOnTop)
 
         let hosting = DraggableHostingView(rootView: OverlayRootView(settings: settings, metrics: metrics))
         hosting.wantsLayer = true
@@ -31,7 +47,7 @@ final class OverlayWindowController {
         // not resize it.
         hosting.sizingOptions = []
         panel.contentView = hosting
-        panel.setContentSize(initialFrame.size)
+        panel.setContentSize(frame.size)
 
         // AppKit resize grip, pinned to the bottom-right corner.
         let handleSize: CGFloat = 16
@@ -48,12 +64,25 @@ final class OverlayWindowController {
         }
         hosting.addSubview(handle)
 
-        applyLevel(settings.alwaysOnTop)
-        applyClickThrough(settings.clickThrough)
-        applyOpacity(settings.opacity)
-        applyAppearance(settings.appearance)
-        observeSettings()
-        observeWindowAndScreen()
+        panel.ignoresMouseEvents = settings.clickThrough
+        panel.alphaValue = CGFloat(settings.opacity.clamped(to: 0.2...1.0))
+        panel.appearance = settings.appearance.nsAppearance
+        return panel
+    }
+
+    /// Replaces the panel with a fresh one built for the new "Always on Top"
+    /// value, keeping its frame and visibility. Needed because a window's
+    /// Space / full-screen membership is fixed when it is created.
+    private func rebuildPanel(alwaysOnTop: Bool) {
+        let old: OverlayPanel = panel
+        let wasVisible = isVisible
+        panel = makePanel(frame: old.frame, alwaysOnTop: alwaysOnTop)
+        panelIsAlwaysOnTop = alwaysOnTop
+        observePanel()
+        if wasVisible { panel.orderFrontRegardless() }
+        old.orderOut(nil)
+        old.contentView = nil
+        old.close()
     }
 
     // MARK: - Show / hide
@@ -91,33 +120,18 @@ final class OverlayWindowController {
         // the previous value and make every apply lag one change behind (which
         // left click-through stuck on after an on→off toggle).
         settings.$alwaysOnTop
-            .sink { [weak self] value in self?.applyLevel(value) }.store(in: &cancellables)
+            .sink { [weak self] value in
+                guard let self, value != self.panelIsAlwaysOnTop else { return }
+                self.rebuildPanel(alwaysOnTop: value)
+            }
+            .store(in: &cancellables)
         settings.$clickThrough
-            .sink { [weak self] value in self?.applyClickThrough(value) }.store(in: &cancellables)
+            .sink { [weak self] value in self?.panel.ignoresMouseEvents = value }.store(in: &cancellables)
         settings.$opacity
-            .sink { [weak self] value in self?.applyOpacity(value) }.store(in: &cancellables)
+            .sink { [weak self] value in self?.panel.alphaValue = CGFloat(value.clamped(to: 0.2...1.0)) }
+            .store(in: &cancellables)
         settings.$appearance
-            .sink { [weak self] value in self?.applyAppearance(value) }.store(in: &cancellables)
-    }
-
-    private func applyLevel(_ alwaysOnTop: Bool) {
-        // `isFloatingPanel` must also track the setting: while it is true the
-        // panel stays above other windows regardless of `level`, which made the
-        // toggle look like it did nothing when switched off.
-        panel.isFloatingPanel = alwaysOnTop
-        panel.level = alwaysOnTop ? .floating : .normal
-    }
-
-    private func applyClickThrough(_ enabled: Bool) {
-        panel.ignoresMouseEvents = enabled
-    }
-
-    private func applyOpacity(_ opacity: Double) {
-        panel.alphaValue = CGFloat(opacity.clamped(to: 0.2...1.0))
-    }
-
-    private func applyAppearance(_ mode: AppearanceMode) {
-        panel.appearance = mode.nsAppearance
+            .sink { [weak self] value in self?.panel.appearance = value.nsAppearance }.store(in: &cancellables)
     }
 
     // MARK: - Resize (from the SwiftUI grip)
@@ -139,15 +153,22 @@ final class OverlayWindowController {
 
     // MARK: - Frame persistence & multi-display
 
-    private func observeWindowAndScreen() {
+    /// Window notifications are tied to one panel instance, so they are
+    /// re-subscribed whenever the panel is rebuilt.
+    private func observePanel() {
+        panelCancellables.removeAll()
         let center = NotificationCenter.default
         center.publisher(for: NSWindow.didMoveNotification, object: panel)
             .sink { [weak self] _ in self?.schedulePersist() }
-            .store(in: &cancellables)
+            .store(in: &panelCancellables)
         center.publisher(for: NSWindow.didResizeNotification, object: panel)
             .sink { [weak self] _ in self?.schedulePersist() }
-            .store(in: &cancellables)
-        center.publisher(for: NSApplication.didChangeScreenParametersNotification, object: nil)
+            .store(in: &panelCancellables)
+    }
+
+    private func observeScreens() {
+        NotificationCenter.default
+            .publisher(for: NSApplication.didChangeScreenParametersNotification, object: nil)
             .sink { [weak self] _ in self?.keepOnScreen() }
             .store(in: &cancellables)
     }

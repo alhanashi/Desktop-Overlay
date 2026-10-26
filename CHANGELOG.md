@@ -2,6 +2,10 @@
 
 ## v1.1
 
+- **Fixed:** with *Always on Top* off the overlay now hides behind full-screen
+  apps like an ordinary window; with it on it shows over them. Toggling takes
+  effect immediately (the overlay window is rebuilt, because a window's
+  full-screen behaviour is fixed when it is created).
 - **Liquid Glass** backdrop on macOS 26+; macOS 15–25 keep the translucent
   material.
 - New **Display style** setting (Settings ▸ Appearance): *Rows* (the original
@@ -30,8 +34,9 @@ First public release.
 - Multi-display aware — recenters on the main screen if a saved position ends up
   off every display.
 - **Energy-aware:** one background timer, collection paused while hidden,
-  interval stretched ×2 / ×4 under thermal pressure. ~0.3 % CPU and ~45 MB RAM
-  while idle.
+  interval stretched ×2 / ×4 under thermal pressure. ~1 % of one CPU core and
+  ~45 MB RAM while idle (an earlier ~0.3 % figure came from `ps`, which
+  under-reports; `top` is the measurement used from v1.1).
 - 100 % native (Swift / SwiftUI / AppKit), **zero dependencies, no network, no
   telemetry**. Public APIs only, apart from the isolated, opt-in SMC module.
 - 40 unit tests.

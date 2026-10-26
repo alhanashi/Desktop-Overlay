@@ -22,7 +22,7 @@ A lightweight, open-source alternative to iStat Menus / MenuMeters / Stats.
   JavaScript, no Python, no bundled runtime, no third-party dependencies.
 - **Local only.** Zero network connections, no database, no telemetry, no
   analytics. Every setting lives in `UserDefaults`.
-- **Light.** ~0.3% CPU and ~45 MB RAM while idle (see [Performance](#performance)).
+- **Light.** ~1% of one CPU core and ~45 MB RAM while idle (see [Performance](#performance)).
 - **Public APIs only** — the one clearly-labelled, optional exception is the SMC
   sensor module for CPU °C / fan RPM (see [Known limitations](#known-limitations)).
 
@@ -132,7 +132,7 @@ Measured on a 2019 MacBook Pro (8-core i9), overlay visible with 7 metrics at a
 
 | Resource | Cost |
 |---|---|
-| CPU, idle | **0.2–0.3 %** |
+| CPU, idle | **≈1 %** of one core (`top`, 9 samples, 3 s apart; the same with Liquid Glass or Gauges) |
 | Memory (RSS) | **~45 MB** |
 | Threads | 7 |
 | Network | **none** — zero sockets open |
