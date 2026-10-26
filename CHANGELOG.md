@@ -1,11 +1,15 @@
 # Changelog
 
-## v1.1
+## v1.1.1
 
 - **Fixed:** with *Always on Top* off the overlay now hides behind full-screen
   apps like an ordinary window; with it on it shows over them. Toggling takes
   effect immediately (the overlay window is rebuilt, because a window's
   full-screen behaviour is fixed when it is created).
+- Docs: idle CPU is ~1 % of one core as measured with `top`.
+
+## v1.1
+
 - **Liquid Glass** backdrop on macOS 26+; macOS 15–25 keep the translucent
   material.
 - New **Display style** setting (Settings ▸ Appearance): *Rows* (the original
