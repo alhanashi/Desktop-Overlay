@@ -7,7 +7,21 @@ enum OverlayGeometry {
 
     static let defaultSize = CGSize(width: 220, height: 140)
     static let minSize = CGSize(width: 150, height: 70)
-    static let maxSize = CGSize(width: 520, height: 560)
+    static let maxSize = CGSize(width: 1100, height: 560)
+
+    /// The natural window size for the `strip` display style: one column per
+    /// metric in a single row, sized from the ring diameter. Clamped to the
+    /// window's min/max so it can never exceed what the panel allows.
+    static func stripSize(metricCount: Int, valuePointSize: CGFloat, compact: Bool) -> CGSize {
+        let columns = CGFloat(max(1, metricCount))
+        let ring = StripLayout.ringSize(valuePointSize: valuePointSize, compact: compact)
+        let cell = StripLayout.cellWidth(valuePointSize: valuePointSize, compact: compact)
+        let width = columns * cell + (columns - 1) * StripLayout.cellSpacing + 2 * StripLayout.padding
+        let textBlock: CGFloat = compact ? 24 : 78      // name row, plus detail and hint lines
+        let height = ring + textBlock + 2 * StripLayout.padding
+        return CGSize(width: width.clamped(to: minSize.width...maxSize.width),
+                      height: height.clamped(to: minSize.height...maxSize.height))
+    }
 
     /// A frame counts as visible if it overlaps some screen by at least
     /// `minVisible` points on both axes.

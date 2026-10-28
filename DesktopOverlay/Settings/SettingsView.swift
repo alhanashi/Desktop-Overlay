@@ -68,6 +68,7 @@ private struct AppearanceSettingsTab: View {
                 ForEach(DisplayStyle.allCases) { Text($0.label).tag($0) }
             }
             .pickerStyle(.segmented)
+            Toggle("Colour rings (otherwise one neutral colour)", isOn: $settings.colourRings)
         }
         .formStyle(.grouped)
     }
@@ -188,7 +189,8 @@ private struct GuideSettingsTab: View {
             Section("Units & symbols") {
                 entry("↓ / ↑", "Read / write for Disk; download / upload for Net.")
                 entry("Rates", "Scale automatically: B/s → KB/s → MB/s → GB/s.")
-                entry("Gauges", "In the Gauges display style the dial arc shows the current value. Disk and Net arcs are relative to the recent peak, not an absolute scale.")
+                entry("Strip", "The default style: one ring per metric in a single row. The ring arc shows the current value, the centre shows the number, and the lines underneath give details and a one-word status. Colour only identifies the metric; the status is always written as a word.")
+                entry("Gauges", "In the Gauges style each row has a small dial instead of the history line. Disk and Net arcs (here and in Strip) are relative to the recent peak, not an absolute scale.")
                 entry("—", "The value could not be read right now.")
             }
 

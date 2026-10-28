@@ -29,13 +29,16 @@
 		6956CCCD0B96101015AB9F1B /* DecayingMax.swift in Sources */ = {isa = PBXBuildFile; fileRef = F886AE9A76D0304D3AEB6E20 /* DecayingMax.swift */; };
 		69659EB706536ECF267675E8 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5088012DA4D9A7817421C /* SettingsWindowController.swift */; };
 		7A27A874677D9DE394E9CBF4 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9D76AC324BA84E9CEC7789 /* MenuBarController.swift */; };
+		8284826F63887276883BF396 /* StripLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647C1A88644DA77AEF6515EE /* StripLayout.swift */; };
 		83417B52ADDA206D6E1F35D6 /* DiskMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C595DACA5A5E8898146E0C80 /* DiskMetric.swift */; };
 		845B186F14E4DFBF71A8E71E /* DesktopOverlayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B32A1A6E55F5FBD006ED682 /* DesktopOverlayApp.swift */; };
 		92D90B0AD7EE56B7E0BDF572 /* MetricFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */; };
 		937F3E7B0F02318B448D4182 /* GaugeGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C619B9131FBCAA027DCC53BE /* GaugeGeometryTests.swift */; };
 		94A7F385E7F4E5FB3148601D /* OverlayGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A28D04D4171616B05F87F /* OverlayGeometry.swift */; };
+		99E33E53FF4BB09E5EA71F9D /* StripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662660921953AD76B7D4368 /* StripView.swift */; };
 		9A34550CC56C06B30AE8E045 /* CPUMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0C7B588FF26E8E05E1A3E /* CPUMetric.swift */; };
 		9B414C7087A6D312D07F1192 /* SMCDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3466B48122AFE59C662C5A1 /* SMCDecodeTests.swift */; };
+		9BDF31DFDFB68255EFE5B4D9 /* StripCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A075E51F95CA3AABD954F6 /* StripCellView.swift */; };
 		AA4EEF18A78ACA6D73882789 /* OverlayCardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B84F09F87799062295B1410 /* OverlayCardBackground.swift */; };
 		AA7D4E90AE6A441240EF05CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF437934DC13777062EF59 /* AppDelegate.swift */; };
 		B1A19D8B712115039CB69871 /* MemoryMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EFC96B06B4EAFBB49C8D8A /* MemoryMetric.swift */; };
@@ -44,10 +47,12 @@
 		B97629F756D3DD20119829BD /* OverlayGeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */; };
 		BB11FFEA85B441CABF721B40 /* SMCTemperatureMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = D809553142639F9A55564D79 /* SMCTemperatureMetric.swift */; };
 		C80BDB250F00750ACE1901BE /* CPUCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637D41A9797264A258542B3A /* CPUCalculator.swift */; };
+		CB9FCE4DE77EF8BD32D06568 /* MetricFormatterRingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF4F06E6E257DF73BAC8CAD /* MetricFormatterRingTests.swift */; };
 		CC672AD4AAE97A79B57C98F5 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D7115CE8EA99FD17F1B678 /* SettingsStore.swift */; };
 		CEC60CF9AE805FBDBC172E56 /* RateCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79337E47F5319114D336C71A /* RateCalculatorTests.swift */; };
 		DC11921C713A40C7D7B44156 /* SystemMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B35C7D5D68E570CC0CC4F1C /* SystemMetric.swift */; };
 		E35E58515161D57AC6018504 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACC0F585D4AAF4D724CAB1 /* RingBuffer.swift */; };
+		E6ABBF98461544CB22AE205D /* MetricStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED45975D5411DA3EB2E2928 /* MetricStyle.swift */; };
 		E8E762533493A76F19973567 /* MemoryCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6614883D566623155AF486AA /* MemoryCalculator.swift */; };
 		EF100CBB7E13DD7DC7A6AE8E /* OverlayRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */; };
 		F90B20EAD35C0367843FD6E4 /* MetricsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CAA7DC67680F7F4AEAFD03 /* MetricsCoordinator.swift */; };
@@ -77,7 +82,9 @@
 		345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCalculatorTests.swift; sourceTree = "<group>"; };
 		3B35C7D5D68E570CC0CC4F1C /* SystemMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetric.swift; sourceTree = "<group>"; };
 		40BA2A8A10572AB3EA1F8540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4BF4F06E6E257DF73BAC8CAD /* MetricFormatterRingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricFormatterRingTests.swift; sourceTree = "<group>"; };
 		637D41A9797264A258542B3A /* CPUCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPUCalculator.swift; sourceTree = "<group>"; };
+		647C1A88644DA77AEF6515EE /* StripLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripLayout.swift; sourceTree = "<group>"; };
 		6551C48DEDD32BB0A7DF8F4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6614883D566623155AF486AA /* MemoryCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCalculator.swift; sourceTree = "<group>"; };
 		7227C06D46B316F827CE0BD8 /* SparklineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparklineView.swift; sourceTree = "<group>"; };
@@ -90,9 +97,11 @@
 		800A28D04D4171616B05F87F /* OverlayGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayGeometry.swift; sourceTree = "<group>"; };
 		8021424ED058243D9F519FF5 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		84ACC0F585D4AAF4D724CAB1 /* RingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
+		8662660921953AD76B7D4368 /* StripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripView.swift; sourceTree = "<group>"; };
 		86E0A5538E4126D24DB9D4DF /* MetricFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricFormatter.swift; sourceTree = "<group>"; };
 		8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayGeometryTests.swift; sourceTree = "<group>"; };
 		8D95B1CD8311E6DA2313B768 /* DesktopOverlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DesktopOverlay.entitlements; sourceTree = "<group>"; };
+		8ED45975D5411DA3EB2E2928 /* MetricStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricStyle.swift; sourceTree = "<group>"; };
 		9625EFAECC35A6466FB44472 /* DraggableHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableHostingView.swift; sourceTree = "<group>"; };
 		9B84F09F87799062295B1410 /* OverlayCardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayCardBackground.swift; sourceTree = "<group>"; };
 		A17A83D866155007BB5CEB1B /* SettingsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStoreTests.swift; sourceTree = "<group>"; };
@@ -106,6 +115,7 @@
 		C619B9131FBCAA027DCC53BE /* GaugeGeometryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeGeometryTests.swift; sourceTree = "<group>"; };
 		CB119DFEA35AA40D2D3185A1 /* DesktopOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesktopOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D809553142639F9A55564D79 /* SMCTemperatureMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMCTemperatureMetric.swift; sourceTree = "<group>"; };
+		D8A075E51F95CA3AABD954F6 /* StripCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripCellView.swift; sourceTree = "<group>"; };
 		E30110D8995A6B2746DD9F57 /* DesktopOverlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopOverlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D166779E2876B5EE1B34E0 /* SystemMetricsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemMetricsService.swift; sourceTree = "<group>"; };
 		E6D7115CE8EA99FD17F1B678 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
@@ -171,6 +181,7 @@
 			children = (
 				9625EFAECC35A6466FB44472 /* DraggableHostingView.swift */,
 				8021424ED058243D9F519FF5 /* GaugeView.swift */,
+				8ED45975D5411DA3EB2E2928 /* MetricStyle.swift */,
 				9B84F09F87799062295B1410 /* OverlayCardBackground.swift */,
 				F282686340D1ABB1B40EE894 /* OverlayPanel.swift */,
 				A920D2228B6D2D2C08E2ABD4 /* OverlayRowView.swift */,
@@ -178,6 +189,8 @@
 				1A0DD7F14BE764F9F000A33B /* OverlayWindowController.swift */,
 				33C7EC47CE1FAF775AE3A1E4 /* ResizeHandleView.swift */,
 				7227C06D46B316F827CE0BD8 /* SparklineView.swift */,
+				D8A075E51F95CA3AABD954F6 /* StripCellView.swift */,
+				8662660921953AD76B7D4368 /* StripView.swift */,
 			);
 			path = Overlay;
 			sourceTree = "<group>";
@@ -236,6 +249,7 @@
 				800A28D04D4171616B05F87F /* OverlayGeometry.swift */,
 				F94A9FD3889F1AC39A1321AE /* RateCalculator.swift */,
 				84ACC0F585D4AAF4D724CAB1 /* RingBuffer.swift */,
+				647C1A88644DA77AEF6515EE /* StripLayout.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -254,6 +268,7 @@
 				345F8BE4AC8E99BCBF283C64 /* CPUCalculatorTests.swift */,
 				C619B9131FBCAA027DCC53BE /* GaugeGeometryTests.swift */,
 				EB32E875055086178D60C9DB /* MemoryCalculatorTests.swift */,
+				4BF4F06E6E257DF73BAC8CAD /* MetricFormatterRingTests.swift */,
 				8AA52E816E8FB0286E741BFA /* OverlayGeometryTests.swift */,
 				79337E47F5319114D336C71A /* RateCalculatorTests.swift */,
 				01947C06ABEBBE1604FDC4FD /* RingBufferTests.swift */,
@@ -371,6 +386,7 @@
 				B1A19D8B712115039CB69871 /* MemoryMetric.swift in Sources */,
 				7A27A874677D9DE394E9CBF4 /* MenuBarController.swift in Sources */,
 				92D90B0AD7EE56B7E0BDF572 /* MetricFormatter.swift in Sources */,
+				E6ABBF98461544CB22AE205D /* MetricStyle.swift in Sources */,
 				4C898161D38DF4700AC03E47 /* MetricValue.swift in Sources */,
 				F90B20EAD35C0367843FD6E4 /* MetricsCoordinator.swift in Sources */,
 				2CA531DC361424F7CBC8C00C /* NetworkMetric.swift in Sources */,
@@ -389,6 +405,9 @@
 				20E14DBE51ACAA17A89B0813 /* SettingsView.swift in Sources */,
 				69659EB706536ECF267675E8 /* SettingsWindowController.swift in Sources */,
 				0328801B599E34BBAF0C625F /* SparklineView.swift in Sources */,
+				9BDF31DFDFB68255EFE5B4D9 /* StripCellView.swift in Sources */,
+				8284826F63887276883BF396 /* StripLayout.swift in Sources */,
+				99E33E53FF4BB09E5EA71F9D /* StripView.swift in Sources */,
 				DC11921C713A40C7D7B44156 /* SystemMetric.swift in Sources */,
 				6799962E36DDA889CF74E8C1 /* SystemMetricsService.swift in Sources */,
 				B81CE266F565BAD52948C136 /* ThermalMetric.swift in Sources */,
@@ -402,6 +421,7 @@
 				2D143E94542D35895C9371D2 /* CPUCalculatorTests.swift in Sources */,
 				937F3E7B0F02318B448D4182 /* GaugeGeometryTests.swift in Sources */,
 				B8BB2E99F2B518CA5F79BD53 /* MemoryCalculatorTests.swift in Sources */,
+				CB9FCE4DE77EF8BD32D06568 /* MetricFormatterRingTests.swift in Sources */,
 				B97629F756D3DD20119829BD /* OverlayGeometryTests.swift in Sources */,
 				CEC60CF9AE805FBDBC172E56 /* RateCalculatorTests.swift in Sources */,
 				3B8153BB6BD79B1FCF216D4F /* RingBufferTests.swift in Sources */,
@@ -493,7 +513,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -509,7 +529,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -593,7 +613,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -615,7 +635,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

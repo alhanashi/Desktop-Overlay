@@ -6,11 +6,15 @@ import SwiftUI
 struct GaugeView: View {
     /// Normalised 0...1.
     var value: Double
+    /// Colour of the value arc; `.primary` gives the original monochrome dial.
+    var tint: Color = .primary
+    /// Stroke width as a fraction of the diameter.
+    var lineWidthRatio: Double = 0.12
 
     var body: some View {
         Canvas(opaque: false, rendersAsynchronously: false) { context, size in
             let diameter = min(size.width, size.height)
-            let lineWidth = max(2, diameter * 0.12)
+            let lineWidth = max(2, diameter * lineWidthRatio)
             let radius = (diameter - lineWidth) / 2
             let center = CGPoint(x: size.width / 2, y: size.height / 2)
             let style = StrokeStyle(lineWidth: lineWidth, lineCap: .round, lineJoin: .round)
@@ -27,7 +31,7 @@ struct GaugeView: View {
                            with: .color(.primary.opacity(0.18)), style: style)
             // At least a few degrees so an idle reading still shows a dot.
             context.stroke(path(sweep: max(3, GaugeGeometry.sweepDegrees(for: value))),
-                           with: .color(.primary), style: style)
+                           with: .color(tint), style: style)
         }
         .accessibilityHidden(true)
     }

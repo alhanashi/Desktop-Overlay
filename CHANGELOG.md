@@ -1,5 +1,24 @@
 # Changelog
 
+## v2.0
+
+- **New default display style: Strip.** One horizontal glass card with a ring
+  gauge per metric: the arc shows the current value, the centre shows the
+  number (with its unit), and underneath are the metric name with an SF Symbol,
+  a detail line (e.g. `↓ 799 KB/s` / `↑ 8 KB/s`) and a one-word status. Disk and
+  Net arcs are relative to the recent peak; Fan is scaled to its real range.
+- **Colour rings** (Settings ▸ Appearance): each metric gets its own colour, or
+  switch it off for a single neutral colour. The status is always written as a
+  word, so colour is never the only signal. The colour also applies to the
+  Gauges style.
+- The window fits the Strip automatically when you switch to it or change the
+  metrics, font size or density, and returns to its previous size when you
+  switch back. Maximum window width raised to 1100 pt.
+- **Nothing is taken away:** *Rows* and *Gauges* are still available in
+  Settings ▸ Appearance ▸ Display style. If you already chose a style, an
+  upgrade keeps it; only new installs start on Strip.
+- 56 unit tests.
+
 ## v1.1
 
 - **Fixed:** with *Always on Top* off the overlay now hides behind full-screen

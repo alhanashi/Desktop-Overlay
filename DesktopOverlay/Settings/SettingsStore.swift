@@ -37,12 +37,20 @@ enum OverlaySizeMode: String, CaseIterable, Identifiable, Sendable {
     var label: String { self == .compact ? "Compact" : "Normal" }
 }
 
-/// How each metric row draws its trailing graphic: a small history line
-/// (`rows`, the original look) or a circular speedometer dial (`gauges`).
+/// How the overlay lays out its metrics. All three stay available in Settings:
+/// - `strip`: one horizontal row of ring gauges (the v2.0 default);
+/// - `rows`: the original vertical list with a small history line per metric;
+/// - `gauges`: the vertical list with a small circular dial per metric.
 enum DisplayStyle: String, CaseIterable, Identifiable, Sendable {
-    case rows, gauges
+    case strip, rows, gauges
     var id: String { rawValue }
-    var label: String { self == .rows ? "Rows" : "Gauges" }
+    var label: String {
+        switch self {
+        case .strip: return "Strip"
+        case .rows: return "Rows"
+        case .gauges: return "Gauges"
+        }
+    }
 }
 
 enum FontSizeMode: String, CaseIterable, Identifiable, Sendable {
@@ -74,6 +82,8 @@ final class SettingsStore: ObservableObject {
         static let fontSize = "appearance.fontSize"
         static let sizeMode = "appearance.sizeMode"
         static let displayStyle = "appearance.displayStyle"
+        static let colourRings = "appearance.colourRings"
+        static let overlayFrameStyle = "overlay.frameStyle"
         static let appearance = "appearance.mode"
         static let enabledMetrics = "metrics.enabled"
         static let updateInterval = "update.interval"
@@ -90,6 +100,7 @@ final class SettingsStore: ObservableObject {
     @Published var fontSize: FontSizeMode { didSet { defaults.set(fontSize.rawValue, forKey: Key.fontSize) } }
     @Published var sizeMode: OverlaySizeMode { didSet { defaults.set(sizeMode.rawValue, forKey: Key.sizeMode) } }
     @Published var displayStyle: DisplayStyle { didSet { defaults.set(displayStyle.rawValue, forKey: Key.displayStyle) } }
+    @Published var colourRings: Bool { didSet { defaults.set(colourRings, forKey: Key.colourRings) } }
     @Published var appearance: AppearanceMode { didSet { defaults.set(appearance.rawValue, forKey: Key.appearance) } }
     @Published var enabledMetrics: Set<MetricID> {
         didSet { defaults.set(enabledMetrics.map(\.rawValue).sorted(), forKey: Key.enabledMetrics) }
@@ -108,7 +119,8 @@ final class SettingsStore: ObservableObject {
             Key.cornerRadius: 12.0,
             Key.fontSize: FontSizeMode.medium.rawValue,
             Key.sizeMode: OverlaySizeMode.normal.rawValue,
-            Key.displayStyle: DisplayStyle.rows.rawValue,
+            Key.displayStyle: DisplayStyle.strip.rawValue,
+            Key.colourRings: true,
             Key.appearance: AppearanceMode.system.rawValue,
             Key.enabledMetrics: [MetricID.cpu, .memory, .disk, .network].map(\.rawValue),
             Key.updateInterval: UpdateInterval.one.rawValue,
@@ -123,7 +135,8 @@ final class SettingsStore: ObservableObject {
         cornerRadius = defaults.double(forKey: Key.cornerRadius)
         fontSize = FontSizeMode(rawValue: defaults.string(forKey: Key.fontSize) ?? "") ?? .medium
         sizeMode = OverlaySizeMode(rawValue: defaults.string(forKey: Key.sizeMode) ?? "") ?? .normal
-        displayStyle = DisplayStyle(rawValue: defaults.string(forKey: Key.displayStyle) ?? "") ?? .rows
+        displayStyle = DisplayStyle(rawValue: defaults.string(forKey: Key.displayStyle) ?? "") ?? .strip
+        colourRings = defaults.bool(forKey: Key.colourRings)
         appearance = AppearanceMode(rawValue: defaults.string(forKey: Key.appearance) ?? "") ?? .system
         enabledMetrics = Set((defaults.stringArray(forKey: Key.enabledMetrics) ?? [])
             .compactMap(MetricID.init(rawValue:)))
@@ -149,6 +162,17 @@ final class SettingsStore: ObservableObject {
             } else {
                 defaults.removeObject(forKey: Key.overlayFrame)
             }
+        }
+    }
+
+    /// The display style the saved `overlayFrame` was sized for. When it differs
+    /// from the current style at launch, the overlay re-fits itself to that
+    /// style's natural size instead of keeping a frame sized for another layout.
+    var overlayFrameStyle: DisplayStyle? {
+        get { defaults.string(forKey: Key.overlayFrameStyle).flatMap(DisplayStyle.init(rawValue:)) }
+        set {
+            if let style = newValue { defaults.set(style.rawValue, forKey: Key.overlayFrameStyle) }
+            else { defaults.removeObject(forKey: Key.overlayFrameStyle) }
         }
     }
 

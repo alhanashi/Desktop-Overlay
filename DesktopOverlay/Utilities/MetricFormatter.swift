@@ -19,6 +19,12 @@ enum MetricFormatter {
     }
 
     private static func byteString(_ bytes: Double, suffix: String) -> String {
+        let parts = splitBytes(bytes, suffix: suffix)
+        return "\(parts.value) \(parts.unit)"
+    }
+
+    /// The number and the unit separately, e.g. ("12.3", "MB/s").
+    private static func splitBytes(_ bytes: Double, suffix: String) -> (value: String, unit: String) {
         let units = ["B", "KB", "MB", "GB", "TB"]
         var value = max(bytes, 0)
         var index = 0
@@ -27,7 +33,38 @@ enum MetricFormatter {
             index += 1
         }
         let fractionDigits = (index == 0 || value >= 100) ? 0 : 1
-        return String(format: "%.\(fractionDigits)f %@%@", value, units[index], suffix)
+        return (String(format: "%.\(fractionDigits)f", value), units[index] + suffix)
+    }
+
+    // MARK: - Ring (strip) display
+
+    /// The big number inside a ring and an optional small unit under it.
+    static func ringCenter(for id: MetricID, reading: MetricReading?) -> (value: String, unit: String?) {
+        guard let reading, reading.primary != .unavailable else { return (unavailable, nil) }
+        switch reading.primary {
+        case .bytesPerSecond(let v):
+            let parts = splitBytes(v, suffix: "/s")
+            return (parts.value, parts.unit)
+        case .rpm(let v):
+            return ("\(Int(v.rounded()))", "rpm")
+        default:
+            return (string(for: reading.primary), nil)
+        }
+    }
+
+    /// Up to two small lines shown under a ring's name.
+    static func ringDetail(for id: MetricID, reading: MetricReading?) -> [String] {
+        guard let reading else { return [] }
+        switch id {
+        case .disk, .network:
+            let downKey = id == .disk ? "read" : "down"
+            let upKey = id == .disk ? "write" : "up"
+            guard case .bytesPerSecond(let down)? = reading.components[downKey],
+                  case .bytesPerSecond(let up)? = reading.components[upKey] else { return [] }
+            return ["↓ \(rate(down))", "↑ \(rate(up))"]
+        default:
+            return secondaryText(for: id, reading: reading).map { [$0] } ?? []
+        }
     }
 
     /// Headline string for a metric row.

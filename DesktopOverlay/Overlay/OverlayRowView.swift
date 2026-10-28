@@ -8,6 +8,7 @@ struct OverlayRowView: View {
     let fontSize: FontSizeMode
     let compact: Bool
     var style: DisplayStyle = .rows
+    var colour: Bool = false
 
     private var isUnavailable: Bool {
         reading == nil || reading?.primary == .unavailable
@@ -53,9 +54,9 @@ struct OverlayRowView: View {
                         SparklineView(samples: history)
                             .frame(width: 44, height: fontSize.valuePointSize + 2)
                     }
-                case .gauges:
+                case .gauges, .strip:
                     if let value = reading?.graphSample {
-                        GaugeView(value: value)
+                        GaugeView(value: value, tint: colour ? id.ringColor : .primary)
                             .frame(width: fontSize.valuePointSize + 8,
                                    height: fontSize.valuePointSize + 8)
                     }

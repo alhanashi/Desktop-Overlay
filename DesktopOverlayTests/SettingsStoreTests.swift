@@ -28,7 +28,9 @@ final class SettingsStoreTests: XCTestCase {
         XCTAssertFalse(settings.clickThrough)
         XCTAssertEqual(settings.enabledMetrics, [.cpu, .memory, .disk, .network])
         XCTAssertEqual(settings.appearance, .system)
-        XCTAssertEqual(settings.displayStyle, .rows)
+        XCTAssertEqual(settings.displayStyle, .strip)
+        XCTAssertTrue(settings.colourRings)
+        XCTAssertNil(settings.overlayFrameStyle)
     }
 
     func testValuesRoundTripAcrossInstances() {
@@ -43,6 +45,8 @@ final class SettingsStoreTests: XCTestCase {
             settings.fontSize = .large
             settings.sizeMode = .compact
             settings.displayStyle = .gauges
+            settings.colourRings = false
+            settings.overlayFrameStyle = .strip
             settings.setMetric(.temperature, enabled: true)
             settings.setMetric(.disk, enabled: false)
         }
@@ -57,8 +61,16 @@ final class SettingsStoreTests: XCTestCase {
         XCTAssertEqual(reloaded.fontSize, .large)
         XCTAssertEqual(reloaded.sizeMode, .compact)
         XCTAssertEqual(reloaded.displayStyle, .gauges)
+        XCTAssertFalse(reloaded.colourRings)
+        XCTAssertEqual(reloaded.overlayFrameStyle, .strip)
         XCTAssertTrue(reloaded.enabledMetrics.contains(.temperature))
         XCTAssertFalse(reloaded.enabledMetrics.contains(.disk))
+    }
+
+    func testStoredRowsStyleSurvivesUpgrade() {
+        defaults.set(DisplayStyle.rows.rawValue, forKey: "appearance.displayStyle")
+        let settings = SettingsStore(defaults: defaults)
+        XCTAssertEqual(settings.displayStyle, .rows)
     }
 
     func testOverlayFrameRoundTrip() {

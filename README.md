@@ -22,7 +22,7 @@ A lightweight, open-source alternative to iStat Menus / MenuMeters / Stats.
   JavaScript, no Python, no bundled runtime, no third-party dependencies.
 - **Local only.** Zero network connections, no database, no telemetry, no
   analytics. Every setting lives in `UserDefaults`.
-- **Light.** ~1% of one CPU core and ~45 MB RAM while idle (see [Performance](#performance)).
+- **Light.** ~1–1.5% of one CPU core and ~45 MB RAM while idle (see [Performance](#performance)).
 - **Public APIs only** — the one clearly-labelled, optional exception is the SMC
   sensor module for CPU °C / fan RPM (see [Known limitations](#known-limitations)).
 
@@ -107,7 +107,8 @@ On first launch:
 | CPU °C / fan RPM | Settings ▸ Metrics ▸ **Sensors (SMC)** — off by default, Intel Macs only |
 | Refresh rate | Menu bar ▸ **Update Interval** (1 / 2 / 5 s) |
 | Appearance | Menu bar ▸ **Appearance** (System / Light / Dark) |
-| Display style | Settings ▸ Appearance ▸ **Display style** — *Rows* (small history line) or *Gauges* (circular speedometer dials) |
+| Display style | Settings ▸ Appearance ▸ **Display style** — *Strip* (default: one ring per metric in a row), *Rows* (small history line) or *Gauges* (dials beside each row) |
+| Colour rings | Settings ▸ Appearance ▸ **Colour rings** — per-metric colours, or one neutral colour |
 | Start with macOS | Menu bar ▸ **Launch at Login**, or Settings ▸ General |
 | Recenter if lost | Menu bar ▸ **Reset Position** |
 | Learn what a value or word means | Settings ▸ **Guide** |
@@ -132,7 +133,7 @@ Measured on a 2019 MacBook Pro (8-core i9), overlay visible with 7 metrics at a
 
 | Resource | Cost |
 |---|---|
-| CPU, idle | **≈1 %** of one core (`top`, 9 samples, 3 s apart; the same with Liquid Glass or Gauges) |
+| CPU, idle | **≈1 %** of one core with Rows or Gauges, **≈1.5 %** with the default Strip (`top`, 9 samples, 3 s apart) |
 | Memory (RSS) | **~45 MB** |
 | Threads | 7 |
 | Network | **none** — zero sockets open |

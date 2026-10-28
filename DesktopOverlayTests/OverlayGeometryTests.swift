@@ -52,4 +52,34 @@ final class OverlayGeometryTests: XCTestCase {
         XCTAssertEqual(result.midX, mainScreen.midX, accuracy: 1)
         XCTAssertEqual(result.midY, mainScreen.midY, accuracy: 1)
     }
+
+    // MARK: - Strip size
+
+    func testStripWidthGrowsWithMetricCount() {
+        let one = OverlayGeometry.stripSize(metricCount: 1, valuePointSize: 13, compact: false)
+        let four = OverlayGeometry.stripSize(metricCount: 4, valuePointSize: 13, compact: false)
+        let eight = OverlayGeometry.stripSize(metricCount: 8, valuePointSize: 13, compact: false)
+        XCTAssertLessThan(one.width, four.width)
+        XCTAssertLessThan(four.width, eight.width)
+        XCTAssertEqual(one.height, four.height)
+    }
+
+    func testCompactStripIsShorterAndNarrower() {
+        let normal = OverlayGeometry.stripSize(metricCount: 4, valuePointSize: 13, compact: false)
+        let compact = OverlayGeometry.stripSize(metricCount: 4, valuePointSize: 13, compact: true)
+        XCTAssertLessThan(compact.height, normal.height)
+        XCTAssertLessThanOrEqual(compact.width, normal.width)
+    }
+
+    func testStripSizeStaysWithinWindowLimits() {
+        for count in [0, 1, 4, 7, 8, 20] {
+            for compact in [false, true] {
+                let size = OverlayGeometry.stripSize(metricCount: count, valuePointSize: 17, compact: compact)
+                XCTAssertGreaterThanOrEqual(size.width, OverlayGeometry.minSize.width)
+                XCTAssertLessThanOrEqual(size.width, OverlayGeometry.maxSize.width)
+                XCTAssertGreaterThanOrEqual(size.height, OverlayGeometry.minSize.height)
+                XCTAssertLessThanOrEqual(size.height, OverlayGeometry.maxSize.height)
+            }
+        }
+    }
 }
